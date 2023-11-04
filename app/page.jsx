@@ -1,4 +1,6 @@
 import Image from 'next/image'
+import { connect } from "@/dbConfig/dbConfig"
+connect()
 
 export default function Home() {
   return (
