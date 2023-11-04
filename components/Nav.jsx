@@ -10,7 +10,7 @@ function Nav() {
   const [isOpen, setIsOpen] = useState(false);
 
   const router = useRouter();
-  const [userData, setUserData] = useState("");
+  const [userData, setUserData] = useState(null);
 
   useEffect(() => {
     getUserDetails();
