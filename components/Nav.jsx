@@ -6,6 +6,9 @@ import { useRouter } from "next/navigation";
 import axios from "axios";
 import toast from "react-hot-toast";
 
+import { connect } from "@/dbConfig/dbConfig"
+connect()
+
 function Nav() {
   const [isOpen, setIsOpen] = useState(false);
 
