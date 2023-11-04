@@ -1,10 +1,10 @@
 import { Inter } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/Nav'
-import { connect } from "@/dbConfig/dbConfig"
+
 
 const inter = Inter({ subsets: ['latin'] })
-connect()
+
 
 export const metadata = {
   title: 'Houssem DH Portfolio',
