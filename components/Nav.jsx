@@ -3,23 +3,33 @@ import React, { useState } from "react";
 import { Transition } from "@headlessui/react";
 import Link from "next/link";
 
-import Image from "next/image";
+
 
 function Nav() {
   const [isOpen, setIsOpen] = useState(false);
 
+  
+
+
+
+  
+
+  
+  
+  
+  
   return (
     <div className="sticky top-0 w-full   ">
-      <nav className="bg-slate-900 ">
+      <nav className='bg-slate-900 '>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-9 border-b-2 border-indigo-500  ">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <Image
+                <img
                   className="h-8 w-8"
                   src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
                   alt="Workflow"
-                ></Image>
+                />
               </div>
               <div className="hidden md:block">
                 <div className="ml-10 flex items-baseline space-x-4">
@@ -60,19 +70,16 @@ function Nav() {
                 </div>
               </div>
             </div>
-            <div className="hidden md:flex space-x-4">
-              <Link
-                href="/login"
-                className="hover:shadow-indigo-500/100 hover:shadow-lg text-gray-300 hover:bg-indigo-500/40 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-              >
+            <div className="hidden md:flex space-x-4"> 
+            
+              <Link href="/login" className="hover:shadow-indigo-500/100 hover:shadow-lg text-gray-300 hover:bg-indigo-500/40 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                 Login
               </Link>
-              <Link
-                href="/signup"
-                className="hover:shadow-indigo-500/100 hover:shadow-lg text-gray-300 hover:bg-indigo-500/40 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
-              >
+              <Link href="/signup" className="hover:shadow-indigo-500/100 hover:shadow-lg text-gray-300 hover:bg-indigo-500/40 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                 Sign Up
               </Link>
+              
+           
             </div>
             <div className="-mr-2 flex md:hidden">
               <button
@@ -122,13 +129,13 @@ function Nav() {
         </div>
 
         <Transition
-          show={isOpen}
-          enter="transition ease-out duration-100 transform"
-          enterFrom="opacity-0 scale-95"
-          enterTo="opacity-100 scale-100"
-          leave="transition ease-in duration-75 transform"
-          leaveFrom="opacity-100 scale-100"
-          leaveTo="opacity-0 scale-95"
+           show={isOpen}
+        enter="transition ease-out duration-100 transform"
+        enterFrom="opacity-0 scale-95"
+        enterTo="opacity-100 scale-100"
+        leave="transition ease-in duration-75 transform"
+        leaveFrom="opacity-100 scale-100"
+        leaveTo="opacity-0 scale-95"
         >
           {(ref) => (
             <div className="md:hidden" id="mobile-menu">
@@ -167,23 +174,20 @@ function Nav() {
                 >
                   Reports
                 </Link>
-                <Link
-                  href="/login"
-                  className="hover:shadow-indigo-500/100 hover:shadow-lg text-gray-300 hover:bg-indigo-500/40 block px-3 py-2 rounded-md text-base font-medium"
-                >
-                  Login
-                </Link>
-                <Link
-                  href="/signup"
-                  className="hover:shadow-indigo-500/100 hover:shadow-lg text-gray-300 hover:bg-indigo-500/40 block px-3 py-2 rounded-md text-base font-medium"
-                >
-                  Sign Up
-                </Link>
+                <Link href="/login" className="hover:shadow-indigo-500/100 hover:shadow-lg text-gray-300 hover:bg-indigo-500/40 block px-3 py-2 rounded-md text-base font-medium">
+                Login
+              </Link>
+              <Link href="/signup" className="hover:shadow-indigo-500/100 hover:shadow-lg text-gray-300 hover:bg-indigo-500/40 block px-3 py-2 rounded-md text-base font-medium">
+                Sign Up
+              </Link>
               </div>
             </div>
           )}
         </Transition>
       </nav>
+
+      
+      
     </div>
   );
 }

@@ -2,7 +2,6 @@ import React from "react";
 import heroImage from "@/public/images/hero_image.svg";
 import Image from "next/image";
 
-
 const HeroSection = () => {
   return (
     <section>
@@ -27,11 +26,11 @@ const HeroSection = () => {
           />
         </div>
         <div className="max-w-2xl text-left mx-8">
-          <h1 className="text-4xl font-bold mb-4">Hi, I'm Houssem</h1>
+          <h1 className="text-4xl font-bold mb-4">{"Hi I'm Houssem"}</h1>
           <p className="text-lg mb-8 leading-relaxed">
-          I'm a Full Stack Developer and Designer with a passion for crafting
-            seamless, user-centric digital experiences. Proficient in both the
-            technical intricacies of web development and the artistry of design
+            {
+              " I'm a Full Stack Developer and Designer with a passion for crafting seamless, user-centric digital experiences. Proficient in both thetechnical intricacies of web development and the artistry of design"
+            }
           </p>
           <div className="flex items-start mb-8">
             <button className="bg-purple-600 text-white px-8 py-3 rounded-full shadow-md hover:bg-purple-700">
