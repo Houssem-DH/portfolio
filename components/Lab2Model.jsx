@@ -1,32 +1,100 @@
-"use client";
-import React, { useRef } from 'react'
-import { useGLTF, useAnimations } from '@react-three/drei'
+import React, { useEffect } from 'react';
 
-export function Model(props) {
-  const group = useRef()
-  const { nodes, materials, animations } = useGLTF('/web3d/lab2/LAB2.glb')
-  const { actions } = useAnimations(animations, group)
+export function Model() {
+  useEffect(() => {
+    const container = document.querySelector("#unity-container");
+    const canvas = document.querySelector("#unity-canvas");
+    const loadingBar = document.querySelector("#unity-loading-bar");
+    const progressBarFull = document.querySelector("#unity-progress-bar-full");
+    const fullscreenButton = document.querySelector("#unity-fullscreen-button");
+    const warningBanner = document.querySelector("#unity-warning");
+
+    function unityShowBanner(msg, type) {
+      function updateBannerVisibility() {
+        warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
+      }
+      var div = document.createElement('div');
+      div.innerHTML = msg;
+      warningBanner.appendChild(div);
+      if (type == 'error') div.style = 'background: red; padding: 10px;';
+      else {
+        if (type == 'warning') div.style = 'background: yellow; padding: 10px;';
+        setTimeout(function() {
+          warningBanner.removeChild(div);
+          updateBannerVisibility();
+        }, 5000);
+      }
+      updateBannerVisibility();
+    }
+
+    const buildUrl = "/Build"; // Adjusted path
+    const loaderUrl = `${buildUrl}/New folder.loader.js`;
+
+    const config = {
+      dataUrl: `${buildUrl}/New folder.data.gz`,
+      frameworkUrl: `${buildUrl}/New folder.framework.js.gz`,
+      codeUrl: `${buildUrl}/New folder.wasm.gz`,
+      streamingAssetsUrl: "/TemplateData", // Adjusted path
+      companyName: "DefaultCompany",
+      productName: "Sence",
+      productVersion: "0.1",
+      showBanner: unityShowBanner,
+    };
+
+    if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+      var meta = document.createElement('meta');
+      meta.name = 'viewport';
+      meta.content = 'width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes';
+      document.getElementsByTagName('head')[0].appendChild(meta);
+      container.className = "unity-mobile";
+      canvas.className = "unity-mobile";
+    } else {
+      canvas.style.width = "960px";
+      canvas.style.height = "600px";
+    }
+
+    loadingBar.style.display = "block";
+
+    const script = document.createElement("script");
+    script.src = loaderUrl;
+    script.onload = () => {
+      createUnityInstance(canvas, config, (progress) => {
+        progressBarFull.style.width = 100 * progress + "%";
+      }).then((unityInstance) => {
+        loadingBar.style.display = "none";
+        fullscreenButton.onclick = () => {
+          unityInstance.SetFullscreen(1);
+        };
+      }).catch((message) => {
+        alert(message);
+      });
+    };
+
+    document.body.appendChild(script);
+
+    return () => {
+      // Cleanup function
+      // Remove event listeners or any cleanup if needed
+    };
+  }, []); // Empty dependency array ensures that the effect runs once on mount
+
   return (
-    <group ref={group} {...props} dispose={null}>
-      <group name="Scene">
-        <group name="donut" position={[-0.001, 1.036, -0.001]} rotation={[2.131, -0.035, 3.086]} scale={149.858}>
-          <mesh name="Torus001" geometry={nodes.Torus001.geometry} material={materials['Material.002']} />
-          <mesh name="Torus001_1" geometry={nodes.Torus001_1.geometry} material={materials['Material.001']} />
-        </group>
-        <group name="donut001" position={[-0.001, 2.685, -0.001]} rotation={[-0.745, -0.29, 2.646]} scale={149.858}>
-          <mesh name="Torus003" geometry={nodes.Torus003.geometry} material={materials['Material.002']} />
-          <mesh name="Torus003_1" geometry={nodes.Torus003_1.geometry} material={materials['Material.001']} />
-        </group>
-        <group name="donut002" position={[-0.001, 4.37, -0.001]} rotation={[1.01, 0, 0]} scale={149.858}>
-          <mesh name="Torus004" geometry={nodes.Torus004.geometry} material={materials['Material.002']} />
-          <mesh name="Torus004_1" geometry={nodes.Torus004_1.geometry} material={materials['Material.001']} />
-        </group>
-        <mesh name="Cube" geometry={nodes.Cube.geometry} material={materials['Material.004']} position={[0, 3.507, 0]} scale={3.512} />
-        <mesh name="Sphere" geometry={nodes.Sphere.geometry} material={nodes.Sphere.material} position={[0, 5.999, 0]} scale={0.151} />
-        <mesh name="Cube001" geometry={nodes.Cube001.geometry} material={materials['Material.006']} position={[-0.983, 9.988, -0.009]} scale={[10.005, 10.005, 17.664]} />
-      </group>
-    </group>
-  )
+    <section>
+      <div id="unity-container" className="unity-desktop">
+        <canvas id="unity-canvas" width="960" height="600" tabIndex="-1"></canvas>
+        <div id="unity-loading-bar">
+          <div id="unity-logo"></div>
+          <div id="unity-progress-bar-empty">
+            <div id="unity-progress-bar-full"></div>
+          </div>
+        </div>
+        <div id="unity-warning"> </div>
+        <div id="unity-footer">
+          <div id="unity-webgl-logo"></div>
+          <div id="unity-fullscreen-button"></div>
+          <div id="unity-build-title">Sence</div>
+        </div>
+      </div>
+    </section>
+  );
 }
-
-useGLTF.preload('/web3d/lab2/LAB2.glb')
