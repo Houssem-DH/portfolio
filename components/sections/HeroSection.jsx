@@ -1,7 +1,7 @@
 import React from "react";
 import heroImage from "@/public/images/hero_image.svg";
 import Image from "next/image";
-import DropDownMenu from "@/components/DropDownMenu"
+
 
 const HeroSection = () => {
   return (
