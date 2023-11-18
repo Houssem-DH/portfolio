@@ -5,39 +5,21 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import toast from "react-hot-toast";
+import Image from "next/image";
 
 
 
 function Nav() {
   const [isOpen, setIsOpen] = useState(false);
 
-  const router = useRouter();
-  const [userData, setUserData] = useState(null);
-
-  useEffect(() => {
-    getUserDetails();
   
-  }, []);
+
+
 
   
 
-  const getUserDetails = async () => {
-    
-    const res = await axios.get("/api/users/me");
-    setUserData(res.data.data.username);
-    console.log(res.data.data);
-    
-  };
-  const logout = async () => {
-    try {
-      await axios.get("/api/users/logout");
-      toast.success("logout success");
-      router.push("/login");
-    } catch (error) {
-      console.log(error.message);
-      toast.error(error.message);
-    }
-  };
+  
+  
   
   
   return (
@@ -93,18 +75,15 @@ function Nav() {
               </div>
             </div>
             <div className="hidden md:flex space-x-4"> 
-            {userData ? (
-              userData
-            ) : (
-              <>
+            
               <Link href="/login" className="hover:shadow-indigo-500/100 hover:shadow-lg text-gray-300 hover:bg-indigo-500/40 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                 Login
               </Link>
               <Link href="/signup" className="hover:shadow-indigo-500/100 hover:shadow-lg text-gray-300 hover:bg-indigo-500/40 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                 Sign Up
               </Link>
-              </>
-            )}
+              
+           
             </div>
             <div className="-mr-2 flex md:hidden">
               <button
