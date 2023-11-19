@@ -13,11 +13,11 @@ const Login = () => {
   });
 
   const [buttonDisabled, setButtonDisabled] = useState(true);
-  const [loding, setLoding] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const onLogin = async () => {
     try {
-      setLoding(true);
+      setLoading(true);
       const response = await axios.post("/api/users/login", user);
       console.log("Login Success", response.data);
       toast.success("Login Success");
@@ -26,7 +26,7 @@ const Login = () => {
       console.log(error.message);
       toast.error(error.message);
     } finally {
-      setLoding(false);
+      setLoading(false);
     }
   };
 
@@ -38,10 +38,10 @@ const Login = () => {
     }
   }, [user]);
   return (
-    <div className="min-h-screen flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-md w-96">
+    <div className="min-h-screen flex items-center justify-center bg-slate-950/25">
+      <div className="bg-slate-950/25 p-8 rounded-lg shadow-md w-96 text-white">
         <h2 className="text-2xl font-semibold mb-4">
-          {loding ? "Prcessing" : " Login"}
+          {loading ? "Processing" : "Login"}
         </h2>
 
         <div className="mb-4">
@@ -52,7 +52,7 @@ const Login = () => {
             type="email"
             id="email"
             name="email"
-            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
+            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500 bg-slate-950/25 text-white border-indigo-500"
             placeholder="Your Email"
             required
             onChange={(e) => {
@@ -68,7 +68,7 @@ const Login = () => {
             type="password"
             id="password"
             name="password"
-            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500"
+            className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500 bg-slate-950/25 text-white border-indigo-500"
             placeholder="Password"
             onChange={(e) => {
               setUser({ ...user, password: e.target.value });
@@ -78,14 +78,19 @@ const Login = () => {
         </div>
         <div className="mb-6">
           <label className="flex items-center">
-            <input type="checkbox" className="text-blue-500 form-checkbox" />
+            <input
+              type="checkbox"
+              className="text-indigo-500 form-checkbox"
+              checked
+            />
             <span className="ml-2 text-gray-600">Remember me</span>
           </label>
         </div>
         <div>
           <button
-            className="w-full bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition duration-300"
+            className="w-full bg-indigo-500 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition duration-300"
             onClick={onLogin}
+            disabled={buttonDisabled}
           >
             {buttonDisabled ? "No login" : "Login"}
           </button>
@@ -93,8 +98,8 @@ const Login = () => {
 
         <div className="mt-4 text-center">
           <p className="text-gray-600">
-            Dont have an account?{" "}
-            <Link href={"/signup"} className="text-blue-500">
+            Don't have an account?{" "}
+            <Link href={"/signup"} className="text-indigo-500">
               Sign up
             </Link>
           </p>
