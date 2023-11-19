@@ -12,8 +12,8 @@ const HeroSection = () => {
       <br />
       <br />
       <br />
-      <br />
-      <br />
+    
+    
       <div className=" text-white h-fit flex items-center justify-center">
         <div className="hidden lg:block">
           {/* Increase the width and height values as needed */}

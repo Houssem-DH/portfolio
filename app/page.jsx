@@ -6,7 +6,8 @@ export default function Home() {
   return (
     <main>
       <HeroSection />
-      <br /><br /><br />
+      <br /><br /><br /> <br />
+      <br />
       <ServicesSection/>
      
     </main>
