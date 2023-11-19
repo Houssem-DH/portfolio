@@ -28,21 +28,21 @@ const ServicesSection = () => {
         </h2>
 
         <p className="text-lg mb-8">
-        {" Looking for a great service? We&#39;ll definitely do that for you! "}
+        {" Looking for a great service? We'll definitely do that for you! "}
           
         </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           <ServiceCard
             title="Game Development"
-            description="We&#39;ve been active in game development for eight years and have had a decent chance to make various games in different genres."
+            description={"Weve been active in game development for eight years and have had a decent chance to make various games in different genres."}
             bgColor="slate"
             icon={FaGamepad}
           />
           <ServiceCard
             title="Web Development"
             description={
-              "It&#39;s crucial to create the correct visual elements for our games both 2D and 3D. We&#39;re great at choosing the right art style for our characters, textures, objects, and environments to fit our needs."
+              "Its crucial to create the correct visual elements for our games both 2D and 3D. Were great at choosing the right art style for our characters, textures, objects, and environments to fit our needs."
             }
             bgColor="slate"
             icon={FaCode}
