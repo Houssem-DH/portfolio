@@ -20,20 +20,21 @@ const ServicesSection = () => {
       </p>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <ServiceCard
+        
           title="Game Development"
-          description="We've been active in game development for eight years and have had a decent chance to make various games in different genres."
+          description={`We've been active in game development for eight years and have had a decent chance to make various games in different genres.`}
           bgColor="slate"
           icon={FaGamepad}
         />
         <ServiceCard
           title="Web Devlopment"
-          description="It's crucial to create the correct visual elements for our games both 2D and 3D. We're great at choosing the right art style for our characters, textures, objects, and environments to fit our needs."
+          description={`It's crucial to create the correct visual elements for our games both 2D and 3D. We're great at choosing the right art style for our characters, textures, objects, and environments to fit our needs.`}
           bgColor="slate"
           icon={FaCode}
         />
         <ServiceCard
           title="UI/UX Design"
-          description="We lead our games through the complete process of creating great mechanics, goals, rules, and all the necessary components for a fantastic foundation to start our development process."
+          description={`We lead our games through the complete process of creating great mechanics, goals, rules, and all the necessary components for a fantastic foundation to start our development process.`}
           bgColor="slate"
           icon={FaPaintBrush}
         />
