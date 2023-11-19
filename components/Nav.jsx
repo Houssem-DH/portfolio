@@ -47,7 +47,7 @@ function Nav() {
 
   
 
-  
+  console.log(userData);
   
   
   
