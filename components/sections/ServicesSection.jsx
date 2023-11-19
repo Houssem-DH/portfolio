@@ -28,7 +28,7 @@ const ServicesSection = () => {
         </h2>
 
         <p className="text-lg mb-8">
-        {" Looking for a great service? We'll definitely do that for you! "}
+        {" Looking for a great service? We&#39;ll definitely do that for you! "}
           
         </p>
 

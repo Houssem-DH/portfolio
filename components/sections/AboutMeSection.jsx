@@ -31,10 +31,10 @@ const AboutMeSection = () => {
       <div className="container mx-auto flex flex-col items-center justify-center md:flex-row">
         <div className="md:w-1/2 md:pr-4">
           <p className="text-lg mb-4 font-light leading-relaxed text-left">
-            Hi, I'm <span className="font-semibold">[Your Name]</span>, a
+            Hi, I&#39;m <span className="font-semibold">[Your Name]</span>, a
             passionate and detail-oriented{" "}
             <span className="italic">[Your Profession]</span>. I enjoy crafting
-            beautiful and functional user experiences, and I'm always eager to
+            beautiful and functional user experiences, and I&#39;m always eager to
             learn and take on new challenges. Lorem ipsum dolor sit amet,
             consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
             labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
