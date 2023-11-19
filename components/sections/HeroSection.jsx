@@ -11,7 +11,7 @@ const HeroSection = () => {
       <br />
       <br />
       <br />
-      <br />
+      
     
     
       <div className=" text-white h-fit flex items-center justify-center">

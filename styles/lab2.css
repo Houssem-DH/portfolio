@@ -1,0 +1,7 @@
+/* styles/tailwind.css or import it in your main CSS file */
+.bordered-div {
+    border-color: #e2e8f0;
+    border-width: 2px;
+    max-width: 1200px; /* Set the maximum width of the bordered div */
+    margin: 0 auto; /* Center the bordered div */
+  }
