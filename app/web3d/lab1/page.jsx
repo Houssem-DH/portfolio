@@ -10,11 +10,11 @@ function Lab1() {
   return (
     <div className="flex items-center justify-center h-screen">
       
-      <div className="border-2 p-4">
+      <div className="border border-indigo-500 p-4">
         
         <Canvas
           camera={{ position: [-10, 5, 7] }}
-          style={{ width: "1280px", height: "720px" }}
+          style={{ width: "1180px", height: "620px" }}
         >
           {/* Ambient light to provide some overall illumination */}
           <ambientLight intensity={0.5} />
