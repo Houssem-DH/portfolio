@@ -10,12 +10,14 @@
   }
 
   .services-heading ::before{
+    --tw-border-opacity: 1;
+  
     content: '';
     position: absolute;
     display: block;
     width: 120px;
     height: 1px;
-    background: rgba(186, 3, 206, 0.557);
+    background: rgb(99 102 241 / var(--tw-border-opacity));
     bottom: -10px;
     left: calc(50% - 60px);
   }
