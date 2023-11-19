@@ -2,6 +2,7 @@ import { Inter } from 'next/font/google'
 import './globals.css'
 
 import Navbar from '@/components/Nav'
+import Footer from '@/components/Footer'
 
 
 const inter = Inter({ subsets: ['latin'] })
@@ -22,7 +23,7 @@ export default function RootLayout({ children }) {
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
       <Navbar/>
         {children}
-        
+        <Footer/>
         </body>
     </html>
   )

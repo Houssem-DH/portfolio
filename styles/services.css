@@ -1,0 +1,23 @@
+.services-heading ::after{
+    content: '';
+    position: absolute;
+    display: block;
+    width: 40px;
+    height: 3px;
+    background: rgb(255, 255, 255);
+    bottom: -11px;
+    left: calc(50% - 20px);
+  }
+
+  .services-heading ::before{
+    content: '';
+    position: absolute;
+    display: block;
+    width: 120px;
+    height: 1px;
+    background: rgba(186, 3, 206, 0.557);
+    bottom: -10px;
+    left: calc(50% - 60px);
+  }
+
+  
