@@ -105,7 +105,7 @@ function Nav() {
             </div>
             <div className="hidden md:flex space-x-4"> 
             {isLoading ? (
-              <div><h3>load</h3></div>
+              <div></div>
             ) : (
               <>
           {userData ? (
