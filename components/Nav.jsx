@@ -52,7 +52,7 @@ function Nav() {
   
   
   return (
-    <div className="sticky top-0 w-full   ">
+    <div className="sticky top-0  bg-slate-900 left-0 w-full  z-50  ">
       <nav className='bg-slate-900 '>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-9 border-b-2 border-indigo-500  ">
           <div className="flex items-center justify-between h-16">

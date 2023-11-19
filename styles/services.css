@@ -15,7 +15,7 @@
     display: block;
     width: 120px;
     height: 1px;
-    background: rgb(99 102 241 / 1);
+    background: rgba(186, 3, 206, 0.557);
     bottom: -10px;
     left: calc(50% - 60px);
   }

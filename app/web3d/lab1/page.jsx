@@ -12,7 +12,7 @@ function Lab1() {
     // Simulate loading time
     const timeout = setTimeout(() => {
       setLoading(false);
-    }, 20000);
+    }, 5000);
 
     return () => clearTimeout(timeout);
   }, []); // Run only on mount
