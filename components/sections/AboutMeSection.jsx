@@ -4,6 +4,7 @@ import { useSpring, animated } from "react-spring";
 import aboutMeImage from "@/public/images/aboutme_image.svg";
 import Image from "next/image";
 import { useInView } from 'react-intersection-observer';
+import "@/styles/services.css";
 
 
 const AboutMeSection = () => {

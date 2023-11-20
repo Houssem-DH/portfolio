@@ -2,6 +2,7 @@
 import React, { useEffect } from "react";
 import { useSpring, animated } from "react-spring";
 import { useInView } from "react-intersection-observer";
+import "@/styles/services.css";
 
 export default function Contact() {
   const [ref, inView] = useInView({

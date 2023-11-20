@@ -98,7 +98,7 @@ function Nav() {
                   </Link>
 
                   <Link
-                    href="#"
+                    href="/university"
                     className="hover:shadow-indigo-500/100 hover:shadow-lg text-gray-300 hover:bg-indigo-500/40 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                   >
                     University

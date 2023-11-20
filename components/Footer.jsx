@@ -20,7 +20,7 @@ const Footer = () => {
       style={style}
       
     >
-    <footer className=" text-white py-8  z-50">
+    <footer className="bg-slate-950/25 text-white py-8  ">
       
       <div className="container mx-auto text-center">
         <p className="text-lg">&copy; 2023 Houssem DH Portfolio. All rights reserved.</p>

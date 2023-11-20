@@ -16,13 +16,18 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+     <head>
+
      
+     </head>
 
-
+     
       <body className={inter.className}>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
       <Navbar/>
+      <div className='min-h-screen'>
         {children}
+        </div>
         <Footer/>
         </body>
     </html>
