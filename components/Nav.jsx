@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import toast from "react-hot-toast";
+import Image from "next/image";
 
 
 
@@ -58,10 +59,12 @@ function Nav() {
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0">
-                <img
+                <Image
                   className="h-8 w-8"
                   src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
                   alt="Workflow"
+                  width={32}
+                  height={32}
                 />
               </div>
               <div className="hidden md:block">
@@ -77,28 +80,28 @@ function Nav() {
                     href="/web3d/lab1"
                     className="hover:shadow-indigo-500/100 hover:shadow-lg text-gray-300 hover:bg-indigo-500/40 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                   >
-                    LAB1 WEB3D
+                    About Me
                   </Link>
 
                   <Link
                     href="#"
                     className="hover:shadow-indigo-500/100 hover:shadow-lg text-gray-300 hover:bg-indigo-500/40 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                   >
-                    Projects
+                    Services
                   </Link>
 
                   <Link
                     href="#"
                     className="hover:shadow-indigo-500/100 hover:shadow-lg text-gray-300 hover:bg-indigo-500/40 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                   >
-                    Calendar
+                    Contact
                   </Link>
 
                   <Link
                     href="#"
                     className="hover:shadow-indigo-500/100 hover:shadow-lg text-gray-300 hover:bg-indigo-500/40 hover:text-white px-3 py-2 rounded-md text-sm font-medium"
                   >
-                    Reports
+                    University
                   </Link>
                 </div>
               </div>
