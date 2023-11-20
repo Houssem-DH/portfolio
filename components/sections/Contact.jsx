@@ -11,13 +11,13 @@ export default function Contact() {
 
   const style = useSpring({
     opacity: inView ? 1 : 0,
-    transform: inView ? "translateY(0)" : "translateY(300px)",
+    transform: inView ? "translateY(0)" : "translateY(00px)",
   });
   return (
     <animated.div
       ref={ref}
       style={style}
-      
+      id='contact'
     >
       <div className=" text-white py-16 mt-16">
         <div className="text-center mb-8">

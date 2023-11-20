@@ -28,7 +28,7 @@ function Lab1() {
         
         <Canvas
           camera={{ position: [-10, 5, 7] }}
-          style={{ width: "1152px", height: "648px" }}
+          style={{ width: "1024px", height: "576px" }}
           
         >
           {/* Ambient light to provide some overall illumination */}

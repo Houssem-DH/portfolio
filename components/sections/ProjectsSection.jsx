@@ -55,6 +55,7 @@ const ProjectsSection = () => {
     <animated.div
     ref={ref}
     style={style}
+    id='projects'
     
   >
     <section className="bg-slate-950/25 text-white py-16 mt-16">

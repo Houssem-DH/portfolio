@@ -18,7 +18,7 @@ const AboutMeSection = () => {
       });
 
   return (
-    <animated.div ref={ref} style={style}
+    <animated.div ref={ref} style={style} id='about'
     
       className="bg-slate-950/25 text-white py-16 mt-16 text-center relative"
     >
