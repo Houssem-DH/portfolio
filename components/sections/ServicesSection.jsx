@@ -42,7 +42,7 @@ const ServicesSection = () => {
           <ServiceCard
             title="Web Development"
             description={
-              "Its crucial to create the correct visual elements for our games both 2D and 3D. Were great at choosing the right art style for our characters, textures, objects, and environments to fit our needs."
+              "Are you ready to establish a robust online presence and elevate your brand to new heights? Our expert web development services are tailored to meet your unique business needs."
             }
             bgColor="slate"
             icon={FaCode}

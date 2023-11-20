@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import axios from "axios";
 import toast from "react-hot-toast";
 import Image from "next/image";
+import logo from '@/public/images/logo2.png'
 
 
 
@@ -61,10 +62,10 @@ function Nav() {
               <div className="flex-shrink-0">
                 <Image
                   className="h-8 w-8"
-                  src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
+                  src={logo}
                   alt="Workflow"
-                  width={32}
-                  height={32}
+                  width={64}
+                  height={64}
                 />
               </div>
               <div className="hidden md:block">

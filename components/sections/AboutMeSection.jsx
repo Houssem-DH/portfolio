@@ -32,15 +32,10 @@ const AboutMeSection = () => {
       <div className="container mx-auto flex flex-col items-center justify-center md:flex-row">
         <div className="md:w-1/2 md:pr-4">
           <p className="text-lg mb-4 font-light leading-relaxed text-left">
-            Hi, Im <span className="font-semibold">[Your Name]</span>, a
-            passionate and detail-oriented{" "}
-            <span className="italic">[Your Profession]</span>. I enjoy crafting
-            beautiful and functional user experiences, and Im always eager to
-            learn and take on new challenges. Lorem ipsum dolor sit amet,
-            consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut
-            labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat.
+            Hi, Im <span className="font-semibold">Dahel Houssem Eddine</span>, a
+            a 22-year-old enthusiast hailing from Setif, Algeria
+            Currently pursuing a Master's degree in Data Engineering and Web Technology at the prestigious University Farhat Abbes.
+            My journey is marked by a profound passion for crafting immersive digital experiences. As a detail-oriented individual, I derive immense satisfaction from weaving together the perfect blend of aesthetics and functionality in web development. I specialize in creating seamless user interfaces that leave a lasting impression.
           </p>
 
           <div className="flex flex-wrap mb-4 text-left">

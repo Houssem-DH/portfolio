@@ -24,7 +24,7 @@ const ProjectsSection = () => {
     {
         title: 'Sigma Market Shop',
         description: 'Ecommerce / Laravel / Bootstrap',
-        image: "/images/projects/site1.webp", // Replace with the actual path to your image
+        image: "/images/projects/site11.png", // Replace with the actual path to your image
         githubLink: 'https://github.com/Houssem-DH/Sigma-Market-Shop',
         livePreviewLink: '#',
       },
