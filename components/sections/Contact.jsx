@@ -11,7 +11,7 @@ export default function Contact() {
 
   const style = useSpring({
     opacity: inView ? 1 : 0,
-    transform: inView ? "translateY(0)" : "translateY(400px)",
+    transform: inView ? "translateY(0)" : "translateY(300px)",
   });
   return (
     <animated.div
@@ -19,7 +19,7 @@ export default function Contact() {
       style={style}
       
     >
-      <div className="bg-slate-950/25 text-white py-16 mt-16">
+      <div className=" text-white py-16 mt-16">
         <div className="text-center mb-8">
           <h2 className="text-4xl font-bold mb-8 services-heading relative">
             CONTACT
