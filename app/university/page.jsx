@@ -1,17 +1,14 @@
-"use client";
 
 
-
-import React, { useEffect } from "react";
+"use client"
+import React from "react";
 import { useSpring, animated } from "react-spring";
 import { useInView } from "react-intersection-observer";
 import "@/styles/services.css";
 import ModeltCard from '@/components/ModelCard';
+import Head from 'next/head'
 
-export const metadata = {
-  title: 'University',
-  description: 'University',
-}
+
 
 const University = () => {
     const [ref, inView] = useInView({
@@ -54,6 +51,7 @@ const University = () => {
     style={style}
     
   >
+    
     <section className=" text-white py-16 mt-16">
       <div className="container mx-auto text-center">
         <h2 className="text-4xl font-bold mb-8 services-heading relative">
