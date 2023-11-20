@@ -34,7 +34,7 @@ const AboutMeSection = () => {
           <p className="text-lg mb-4 font-light leading-relaxed text-left">
             Hi, Im <span className="font-semibold">Dahel Houssem Eddine</span>, a
             a 22-year-old enthusiast hailing from Setif, Algeria
-            Currently pursuing a Master's degree in Data Engineering and Web Technology at the prestigious University Farhat Abbes.
+            Currently pursuing a Master degree in Data Engineering and Web Technology at the prestigious University Farhat Abbes.
             My journey is marked by a profound passion for crafting immersive digital experiences. As a detail-oriented individual, I derive immense satisfaction from weaving together the perfect blend of aesthetics and functionality in web development. I specialize in creating seamless user interfaces that leave a lasting impression.
           </p>
 
