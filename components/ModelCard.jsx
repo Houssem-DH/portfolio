@@ -1,14 +1,12 @@
-// components/ProjectCard.js
 import React from "react";
-import { FaGithub, FaExternalLinkAlt } from "react-icons/fa";
+import {  FaExternalLinkAlt } from "react-icons/fa";
 import Image from "next/image";
 import Link from "next/link";
 
-const ProjectCard = ({
+const ModelCard = ({
   title,
   description,
   image,
-  githubLink,
   livePreviewLink,
 }) => {
   return (
@@ -17,9 +15,7 @@ const ProjectCard = ({
       <h3 className="text-2xl font-bold mb-2 text-indigo-500">{title}</h3>
       <p className="text-gray-400 mb-4">{description}</p>
       <div className="flex space-x-4">
-        <Link href={githubLink} target="_blank" rel="noopener noreferrer">
-          <FaGithub className="text-gray-200 hover:text-indigo-500 transition duration-300" />
-        </Link>
+        
         <Link href={livePreviewLink} target="_blank" rel="noopener noreferrer">
           <FaExternalLinkAlt className="text-gray-200 hover:text-indigo-500 transition duration-300" />
         </Link>
@@ -28,4 +24,4 @@ const ProjectCard = ({
   );
 };
 
-export default ProjectCard;
+export default ModelCard;
