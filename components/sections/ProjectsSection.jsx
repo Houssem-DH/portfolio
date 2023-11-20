@@ -16,7 +16,7 @@ const ProjectsSection = () => {
     
       const style = useSpring({
         opacity: inView ? 1 : 0,
-        transform: inView ? "translateY(0)" : "translateY(300px)",
+        transform: inView ? "translateY(0)" : "translateY(400px)",
       });
 
   const projects = [
@@ -36,7 +36,7 @@ const ProjectsSection = () => {
       },
 
     {
-      title: 'CRUD LARAVEL APP',
+      title: 'CRUD APP',
       description: 'Laravel / Bootstrap',
       image: "/images/projects/site3.png", // Replace with the actual path to your image
       githubLink: 'https://github.com/Houssem-DH/CRUD-APP-LARAVEL',
