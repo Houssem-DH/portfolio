@@ -7,8 +7,7 @@ export function Model() {
   return (
     <div>
      <br /><br />
-     <br /><br /><br />
-     <br />
+    
      
     <div className="border border-indigo-500 rounded-lg overflow-hidden shadow-md bordered-div">
       <Image

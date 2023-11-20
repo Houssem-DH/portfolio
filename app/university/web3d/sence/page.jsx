@@ -11,13 +11,13 @@ function Lab2() {
     // Simulate loading time
     const timeout = setTimeout(() => {
       setLoading(false);
-    }, 2000);
+    }, 500);
 
     return () => clearTimeout(timeout);
   }, []); // Run only on mount
   
   return (
-    <div className="container mx-auto p-8 h-screen">
+    <div className="container mx-auto p-8 ">
       {loading ? (
       <Loading size={50} color="rgb(99 102 241 / 0.4)"/>
     ) : (
