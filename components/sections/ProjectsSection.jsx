@@ -9,6 +9,7 @@ import "@/styles/services.css";
 import ProjectCard from '@/components/ProjectCard';
 
 
+
 const ProjectsSection = () => {
     const [ref, inView] = useInView({
         triggerOnce: true,
@@ -23,14 +24,14 @@ const ProjectsSection = () => {
     {
         title: 'Sigma Market Shop',
         description: 'Ecommerce / Laravel / Bootstrap',
-        image: "/images/projects/site2.webp", // Replace with the actual path to your image
+        image: "/images/projects/site1.webp", // Replace with the actual path to your image
         githubLink: 'https://github.com/Houssem-DH/Sigma-Market-Shop',
         livePreviewLink: '#',
       },
     {
         title: 'Discover Algeria',
         description: 'Laravel / Bootstrap',
-        image: "/images/projects/site1.png", // Replace with the actual path to your image
+        image: "/images/projects/site2.png", // Replace with the actual path to your image
         githubLink: 'https://github.com/Houssem-DH/Discover_Algeria',
         livePreviewLink: '#',
       },
