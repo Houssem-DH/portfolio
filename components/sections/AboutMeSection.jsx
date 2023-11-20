@@ -13,7 +13,7 @@ const AboutMeSection = () => {
     
       const style = useSpring({
         opacity: inView ? 1 : 0,
-        transform: inView ? 'translateY(0)' : 'translateY(400px)',
+        transform: inView ? 'translateY(0)' : 'translateY(200px)',
       });
 
   return (
