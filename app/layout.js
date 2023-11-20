@@ -25,9 +25,9 @@ export default function RootLayout({ children }) {
       <body className={inter.className}>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" />
       <Navbar/>
-      <div className='min-h-screen'>
+      
         {children}
-        </div>
+        
         <Footer/>
         </body>
     </html>
