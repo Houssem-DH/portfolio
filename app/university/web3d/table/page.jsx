@@ -6,6 +6,11 @@ import { OrbitControls } from "@react-three/drei";
 import { Model } from "@/components/Lab1Model";
 import Loading from "@/components/Loading";
 
+export const metadata = {
+  title: 'Table',
+  description: 'Table',
+}
+
 function Lab1() {
   const [loading, setLoading] = useState(true);
   useEffect(() => {

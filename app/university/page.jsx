@@ -8,7 +8,10 @@ import { useInView } from "react-intersection-observer";
 import "@/styles/services.css";
 import ModeltCard from '@/components/ModelCard';
 
-
+export const metadata = {
+  title: 'University',
+  description: 'University',
+}
 
 const University = () => {
     const [ref, inView] = useInView({

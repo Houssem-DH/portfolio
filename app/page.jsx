@@ -5,6 +5,11 @@ import AboutMeSection from "@/components/sections/AboutMeSection";
 import Contact from "@/components/sections/Contact";
 import ProjectsSection from "@/components/sections/ProjectsSection";
 
+export const metadata = {
+  title: 'Houssem DH Portfolio',
+  description: 'Houssem DH Portfolio',
+}
+
 export default function Home() {
 
 
