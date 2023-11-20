@@ -5,10 +5,7 @@ import Loading from "@/components/Loading";
 
 import { Model } from "@/components/Lab2Model";
 
-export const metadata = {
-  title: 'Sence',
-  description: 'Sence',
-}
+
 function Lab2() {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
