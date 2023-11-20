@@ -10,7 +10,7 @@ import ModeltCard from '@/components/ModelCard';
 
 
 
-const university = () => {
+const University = () => {
     const [ref, inView] = useInView({
         triggerOnce: true,
       });
@@ -68,4 +68,4 @@ const university = () => {
   );
 };
 
-export default university;
+export default University;
