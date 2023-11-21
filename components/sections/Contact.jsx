@@ -1,10 +1,39 @@
 "use client";
-import React from "react";
+import React ,{useState} from "react";
 import { useSpring, animated } from "react-spring";
 import { useInView } from "react-intersection-observer";
 import "@/styles/services.css";
+import { useRouter } from "next/navigation";
+import axios from "axios";
+import toast from "react-hot-toast";
 
 export default function Contact() {
+
+  const [email, setEmail] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const sendMail = async () => {
+  
+
+    try {
+     
+      const response = await axios.post("/api/sendEmail", email);
+      console.log("Email Sent", response.message);
+      router.reload();
+    } catch (error) {
+      console.log("Email Failed", error.message);
+      toast.error(error.message);
+    } 
+    
+  }
+
+
+
+
   const [ref, inView] = useInView({
     triggerOnce: true,
   });
@@ -40,6 +69,9 @@ export default function Contact() {
                   name="yourName"
                   className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500 bg-slate-950/25 border-indigo-500"
                   placeholder="Your Name"
+                  onChange={(e) => {
+                    setEmail({ ...email, name: e.target.value });
+                  }}
                   required
                 />
               </div>
@@ -54,6 +86,9 @@ export default function Contact() {
                   name="email"
                   className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500 bg-slate-950/25 border-indigo-500"
                   placeholder="Your Email Address"
+                  onChange={(e) => {
+                    setEmail({ ...email, email: e.target.value });
+                  }}
                   required
                 />
               </div>
@@ -68,6 +103,9 @@ export default function Contact() {
                   name="subject"
                   className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500 bg-slate-950/25 border-indigo-500"
                   placeholder="Subject"
+                  onChange={(e) => {
+                    setEmail({ ...email, subject: e.target.value });
+                  }}
                   required
                 />
               </div>
@@ -82,6 +120,9 @@ export default function Contact() {
                   rows="4"
                   className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500 bg-slate-950/25 border-indigo-500"
                   placeholder="Your Message"
+                  onChange={(e) => {
+                    setEmail({ ...email, message: e.target.value });
+                  }}
                   required
                 ></textarea>
               </div>
@@ -89,6 +130,7 @@ export default function Contact() {
               <div className="text-center">
                 <button
                   type="submit"
+                  onClick={sendMail}
                   className="bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition duration-300"
                 >
                   Send Message
