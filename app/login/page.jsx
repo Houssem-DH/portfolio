@@ -41,7 +41,7 @@ const Login = () => {
     <div className="min-h-screen flex items-center justify-center bg-slate-950/25">
       <div className="bg-slate-950/25 p-8 rounded-lg shadow-md w-96 text-white">
         <h2 className="text-2xl font-semibold mb-4">
-          {loading ? "Processing" : "Login"}
+          {loading ? "Processing" : "Login1"}
         </h2>
 
         <div className="mb-4">
