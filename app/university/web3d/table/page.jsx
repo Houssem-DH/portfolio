@@ -20,7 +20,7 @@ function Lab1() {
   return (
    
     
-    <div className="flex items-center justify-center h-screen">
+    <div className="flex items-center justify-center min-h-screen">
     {loading ? (
       <Loading size={50} color="rgb(99 102 241 / 0.4)"/>
     ) : (

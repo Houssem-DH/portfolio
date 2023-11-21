@@ -18,11 +18,13 @@ function Lab2() {
   }, []); // Run only on mount
   
   return (
-    <div className="container mx-auto p-8 min-h-screen">
+   <div>
       {loading ? (
+        <div className="flex items-center justify-center min-h-screen">
       <Loading size={50} color="rgb(99 102 241 / 0.4)"/>
+      </div>
     ) : (
-      <div>
+      <div className="container mx-auto p-8 min-h-screen">
     <h1 className="text-4xl font-bold mb-4 text-gray-300"></h1>
     <Model />
     </div>
