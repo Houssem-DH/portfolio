@@ -59,22 +59,28 @@ const HeroSection = () => {
           </div>
           <div className="flex items-center">
             <hr className="border-t border-gray-400 flex-grow mr-4" />
-            <span className="text-gray-400">Tech Stack</span>
+            <span className="text-gray-300">Tech and Tools</span>
             <hr className="border-t border-gray-400 flex-grow ml-4" />
           </div>
           <div className="flex items-center mt-4">
             {/* Add your tech stack icons here */}
 
-            <i className="fab fa-python text-4xl mx-2"></i>
-            <i className="fab fa-vuejs text-4xl mx-2"></i>
-            <i className="fab fa-react text-4xl mx-2"></i>
-            <i className="fab fa-js text-4xl mx-2"></i>
-            <i className="fab fa-node-js text-4xl mx-2"></i>
+            <Image src={"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"} className="fab fa-python text-4xl mx-2" width={26} height={26}></Image>
+            <Image src={"/images/icons/Visual_Studio_Icon_2022.svg"} className="fab fa-python text-4xl mx-2" width={26} height={26}></Image>
+            <Image src={"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"} className="fab fa-python text-4xl mx-2" width={26} height={26}></Image>
+            <Image src={"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"} className="fab fa-python text-4xl mx-2" width={26} height={26}></Image>
+            <Image src={"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"} className="fab fa-python text-4xl mx-2" width={26} height={26}></Image>
+            <Image src={"/images/icons/laravel.svg"} className="fab fa-python text-4xl mx-2" width={26} height={26}></Image>
+            <Image src={"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg"} className="fab fa-python text-4xl mx-2" width={26} height={26}></Image>
+            <Image src={"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"} className="fab fa-python text-4xl mx-2" width={26} height={26}></Image>
+            <Image src={"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"} className="fab fa-python text-4xl mx-2" width={26} height={26}></Image>
+            <Image src={"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"} className="fab fa-python text-4xl mx-2" width={26} height={26}></Image>
+            <Image src={"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"} className="fab fa-python text-4xl mx-2" width={26} height={26}></Image>
+            <Image src={"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg"} className="fab fa-python text-4xl mx-2" width={26} height={26}></Image>
+            <Image src={"/images/icons/unity.svg"} className="fab fa-python text-4xl mx-2" width={26} height={26}></Image>
+            
+            
 
-            <i className="fab fa-unity text-4xl mx-2"></i>
-
-            <i className="fab fa-docker text-4xl mx-2"></i>
-            <i className="fas fa-database text-4xl mx-2"></i>
             {/* Add more icons as needed */}
           </div>
         </div>

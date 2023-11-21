@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect } from "react";
+import React from "react";
 import { useSpring, animated } from "react-spring";
 import { useInView } from "react-intersection-observer";
 import "@/styles/services.css";
@@ -11,7 +11,7 @@ export default function Contact() {
 
   const style = useSpring({
     opacity: inView ? 1 : 0,
-    transform: inView ? "translateY(0)" : "translateY(00px)",
+    transform: inView ? "translateY(0)" : "translateY(1px)",
   });
   return (
     <animated.div

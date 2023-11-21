@@ -16,7 +16,7 @@ function Nav() {
   
   const [isLoading, setIsLoading] = useState(true);
   
- 
+  const [userData, setUserData] = useState("");
 
   useEffect(() => {
     getUserDetails();
@@ -26,7 +26,7 @@ function Nav() {
 
 
   const router = useRouter();
-  const [userData, setUserData] = useState("");
+ 
 
   const getUserDetails = async () => {
     setIsLoading(true);
@@ -120,12 +120,13 @@ function Nav() {
           {userData ? (
             
              <div>
+               <Link href="/#" className=" hover:shadow-lg text-gray-300  hover:text-white px-3 py-2 rounded-md text-sm font-medium">
+              { userData}
+              </Link>
               <Link href="#"  onClick={logout} className="hover:shadow-indigo-500/100 hover:shadow-lg text-gray-300 hover:bg-indigo-500/40 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
                 Logout
               </Link>
-              <Link href="/#" className="hover:shadow-indigo-500/100 hover:shadow-lg text-gray-300 hover:bg-indigo-500/40 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-              { userData}
-              </Link>
+             
              
               </div>
             ) : (
@@ -201,46 +202,71 @@ function Nav() {
           {(ref) => (
             <div className="md:hidden" id="mobile-menu">
               <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <Link
-                  href="#"
-                  className="hover:shadow-indigo-500/100 hover:shadow-lg text-gray-300 hover:bg-indigo-500/40 block px-3 py-2 rounded-md text-base font-medium"
-                >
-                  Dashboard
-                </Link>
+              <Link
+                    href={"/"}
+                    className="hover:shadow-indigo-500/100 hover:shadow-lg text-gray-300 hover:bg-indigo-500/40 block px-3 py-2 rounded-md text-base font-medium"
+                  >
+                    Home
+                  </Link>
 
-                <Link
-                  href="#"
-                  className="hover:shadow-indigo-500/100 hover:shadow-lg text-gray-300 hover:bg-indigo-500/40 block px-3 py-2 rounded-md text-base font-medium"
-                >
-                  Team
-                </Link>
+                  <Link
+                    href="#about"
+                    className="hover:shadow-indigo-500/100 hover:shadow-lg text-gray-300 hover:bg-indigo-500/40 block px-3 py-2 rounded-md text-base font-medium"
+                  >
+                    About Me
+                  </Link>
 
-                <Link
-                  href="#"
-                  className="hover:shadow-indigo-500/100 hover:shadow-lg text-gray-300 hover:bg-indigo-500/40 block px-3 py-2 rounded-md text-base font-medium"
-                >
-                  Projects
-                </Link>
+                  <Link
+                    href="#services"
+                    className="hover:shadow-indigo-500/100 hover:shadow-lg text-gray-300 hover:bg-indigo-500/40 block px-3 py-2 rounded-md text-base font-medium"
+                  >
+                    Services
+                  </Link>
+                  <Link
+                    href="#projects"
+                    className="hover:shadow-indigo-500/100 hover:shadow-lg text-gray-300 hover:bg-indigo-500/40 block px-3 py-2 rounded-md text-base font-medium"
+                  >
+                    Projects
+                  </Link>
+                  <Link
+                    href="#contact"
+                    className="hover:shadow-indigo-500/100 hover:shadow-lg text-gray-300 hover:bg-indigo-500/40 block px-3 py-2 rounded-md text-base font-medium"
+                  >
+                    Contact
+                  </Link>
 
-                <Link
-                  href="#"
-                  className="hover:shadow-indigo-500/100 hover:shadow-lg text-gray-300 hover:bg-indigo-500/40 block px-3 py-2 rounded-md text-base font-medium"
-                >
-                  Calendar
-                </Link>
-
-                <Link
-                  href="#"
-                  className="hover:shadow-indigo-500/100 hover:shadow-lg text-gray-300 hover:bg-indigo-500/40 block px-3 py-2 rounded-md text-base font-medium"
-                >
-                  Reports
-                </Link>
-                <Link href="/login" className="hover:shadow-indigo-500/100 hover:shadow-lg text-gray-300 hover:bg-indigo-500/40 block px-3 py-2 rounded-md text-base font-medium">
+                  <Link
+                    href="/university"
+                    className="hover:shadow-indigo-500/100 hover:shadow-lg text-gray-300 hover:bg-indigo-500/40 block px-3 py-2 rounded-md text-base font-medium"
+                  >
+                    University
+                  </Link>
+                
+                  
+          {userData ? (
+            
+             <div>
+               <Link href="/#" className=" hover:shadow-lg text-gray-300  block px-3 py-2 rounded-md text-base font-medium">
+              { userData}
+              </Link>
+              <Link href="#"  onClick={logout} className="hover:shadow-indigo-500/100 hover:shadow-lg text-gray-300 hover:bg-indigo-500/40 block px-3 py-2 rounded-md text-base font-medium">
+                Logout
+              </Link>
+             
+             
+              </div>
+            ) : (
+              <div>
+              <Link href="/login" className="hover:shadow-indigo-500/100 hover:shadow-lg text-gray-300 hover:bg-indigo-500/40 block px-3 py-2 rounded-md text-base font-medium">
                 Login
               </Link>
               <Link href="/signup" className="hover:shadow-indigo-500/100 hover:shadow-lg text-gray-300 hover:bg-indigo-500/40 block px-3 py-2 rounded-md text-base font-medium">
                 Sign Up
               </Link>
+              </div>
+              )}
+              
+             
               </div>
             </div>
           )}

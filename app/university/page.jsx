@@ -52,7 +52,7 @@ const University = () => {
     
   >
     
-    <section className=" text-white py-16 mt-16">
+    <section className=" text-white py-16 mt-16 min-h-screen">
       <div className="container mx-auto text-center">
         <h2 className="text-4xl font-bold mb-8 services-heading relative">
           WEB3D

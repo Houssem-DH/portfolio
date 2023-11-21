@@ -18,7 +18,7 @@ function Lab2() {
   }, []); // Run only on mount
   
   return (
-    <div className="container mx-auto p-8 ">
+    <div className="container mx-auto p-8 min-h-screen">
       {loading ? (
       <Loading size={50} color="rgb(99 102 241 / 0.4)"/>
     ) : (
