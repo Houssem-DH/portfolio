@@ -31,7 +31,7 @@ const University = () => {
    
 
     {
-      title: 'Sence',
+      title: 'Scence',
       description: 'Blender /Fluid Simulation ',
       image: "/images/web3d/sence.png", // Replace with the actual path to your image
      
