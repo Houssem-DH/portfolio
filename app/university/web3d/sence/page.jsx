@@ -1,36 +1,16 @@
-"use client";
+// pages/index.js
+import React from "react";
+import ThreeScene from "@/components/Lab2Model";
 
-import React, { useEffect, useState } from "react";
-import Loading from "@/components/Loading";
-
-import { Model } from "@/components/Lab2Model";
-
-
-function Lab2() {
-  const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    // Simulate loading time
-    const timeout = setTimeout(() => {
-      setLoading(false);
-    }, 500);
-
-    return () => clearTimeout(timeout);
-  }, []); // Run only on mount
-  
+const HomePage = () => {
   return (
-   <div>
-      {loading ? (
-        <div className="flex items-center justify-center min-h-screen">
-      <Loading size={50} color="rgb(99 102 241 / 0.4)"/>
-      </div>
-    ) : (
-      <div className="container mx-auto p-8 min-h-screen">
-    <h1 className="text-4xl font-bold mb-4 text-gray-300"></h1>
-    <Model />
+    <div>
+      <div className="min-h-screen flex justify-center items-center">
+      <ThreeScene width={600} height={400} /> {/* Set your desired width and height */}
     </div>
-    )}
-  </div>
+     
+    </div>
   );
-}
+};
 
-export default Lab2;
+export default HomePage;
