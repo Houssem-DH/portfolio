@@ -78,7 +78,7 @@ const HeroSection = () => {
             <Image src={"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"} className="fab fa-python text-4xl mx-2" width={26} height={26} alt="x"></Image>
             <Image src={"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"} className="fab fa-python text-4xl mx-2" width={26} height={26} alt="x"></Image>
             <Image src={"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg"} className="fab fa-python text-4xl mx-2" width={26} height={26} alt="x"></Image>
-            <Image src={"/images/icons/unity.svg"} className="fab fa-python text-4xl mx-2" width={26} height={26}></Image>
+            <Image src={"/images/icons/unity.svg"} className="fab fa-python text-4xl mx-2" width={26} height={26}  alt="x"></Image>
             
             
 
