@@ -35,7 +35,7 @@ const University = () => {
       description: 'Blender /Fluid Simulation ',
       image: "/images/web3d/sence.png", // Replace with the actual path to your image
      
-      livePreviewLink: '/university/web3d/sence',
+      livePreviewLink: '/university/web3d/scene',
     },
     
       
