@@ -1,6 +1,7 @@
 import React from "react";
 import heroImage from "@/public/images/hero_image.svg";
 import Image from "next/image";
+import Link from "next/link";
 
 const HeroSection = () => {
   return (
@@ -39,22 +40,22 @@ const HeroSection = () => {
 
             <div className="flex ml-4 items-start mt-3">
               {/* GitHub icon */}
-              <a
+              <Link
                 href="https://github.com/Houssem-DH"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <i className="fab fa-github text-white hover:text-purple-600 text-2xl"></i>
-              </a>
+              </Link>
 
               {/* LinkedIn icon */}
-              <a
+              <Link
                 href="https://www.linkedin.com/in/xdhoussem/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
                 <i className="fab fa-linkedin-in text-white hover:text-purple-600 text-2xl ml-4"></i>
-              </a>
+              </Link>
             </div>
           </div>
           <div className="flex items-center">
@@ -65,18 +66,18 @@ const HeroSection = () => {
           <div className="flex items-center mt-4">
             {/* Add your tech stack icons here */}
 
-            <Image src={"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"} className="fab fa-python text-4xl mx-2" width={26} height={26}></Image>
-            <Image src={"/images/icons/Visual_Studio_Icon_2022.svg"} className="fab fa-python text-4xl mx-2" width={26} height={26}></Image>
-            <Image src={"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"} className="fab fa-python text-4xl mx-2" width={26} height={26}></Image>
-            <Image src={"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"} className="fab fa-python text-4xl mx-2" width={26} height={26}></Image>
-            <Image src={"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"} className="fab fa-python text-4xl mx-2" width={26} height={26}></Image>
+            <Image src={"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"} className="fab fa-python text-4xl mx-2" width={26} height={26} alt="x"></Image>
+            <Image src={"/images/icons/Visual_Studio_Icon_2022.svg"} className="fab fa-python text-4xl mx-2" width={26} height={26} alt="x"></Image>
+            <Image src={"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"} className="fab fa-python text-4xl mx-2" width={26} height={26} alt="x"></Image>
+            <Image src={"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"} className="fab fa-python text-4xl mx-2" width={26} height={26} alt="x"></Image>
+            <Image src={"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"} className="fab fa-python text-4xl mx-2" width={26} height={26} alt="x"></Image>
             <Image src={"/images/icons/laravel.svg"} className="fab fa-python text-4xl mx-2" width={26} height={26}></Image>
-            <Image src={"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg"} className="fab fa-python text-4xl mx-2" width={26} height={26}></Image>
-            <Image src={"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"} className="fab fa-python text-4xl mx-2" width={26} height={26}></Image>
-            <Image src={"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"} className="fab fa-python text-4xl mx-2" width={26} height={26}></Image>
-            <Image src={"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"} className="fab fa-python text-4xl mx-2" width={26} height={26}></Image>
-            <Image src={"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"} className="fab fa-python text-4xl mx-2" width={26} height={26}></Image>
-            <Image src={"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg"} className="fab fa-python text-4xl mx-2" width={26} height={26}></Image>
+            <Image src={"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg"} className="fab fa-python text-4xl mx-2" width={26} height={26} alt="x"></Image>
+            <Image src={"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg"} className="fab fa-python text-4xl mx-2" width={26} height={26} alt="x"></Image>
+            <Image src={"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg"} className="fab fa-python text-4xl mx-2" width={26} height={26} alt="x"></Image>
+            <Image src={"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"} className="fab fa-python text-4xl mx-2" width={26} height={26} alt="x"></Image>
+            <Image src={"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"} className="fab fa-python text-4xl mx-2" width={26} height={26} alt="x"></Image>
+            <Image src={"https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg"} className="fab fa-python text-4xl mx-2" width={26} height={26} alt="x"></Image>
             <Image src={"/images/icons/unity.svg"} className="fab fa-python text-4xl mx-2" width={26} height={26}></Image>
             
             

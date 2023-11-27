@@ -6,7 +6,7 @@ import { useSpring, animated } from "react-spring";
 import { useInView } from "react-intersection-observer";
 import "@/styles/services.css";
 import ModeltCard from '@/components/ModelCard';
-import Head from 'next/head'
+
 
 
 
@@ -31,11 +31,19 @@ const University = () => {
    
 
     {
-      title: 'Scence',
+      title: 'Scene',
+      description: 'Blender / Snow / Animation ',
+      image: "/images/web3d/scene.png", // Replace with the actual path to your image
+     
+      livePreviewLink: '/university/web3d/scene',
+    },
+
+    {
+      title: 'Scene V2 (GIF)',
       description: 'Blender /Fluid Simulation ',
       image: "/images/web3d/sence.png", // Replace with the actual path to your image
      
-      livePreviewLink: '/university/web3d/scene',
+      livePreviewLink: '/university/web3d/scenev2',
     },
     
       

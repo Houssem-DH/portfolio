@@ -207,7 +207,8 @@ const ModelViewer = () => {
           min="0.001"
           max="0.01"
           step="0.001"
-          className="appearance-none w-32 mx-2 h-3 bg-gray-400 rounded-full outline-none"
+          className="appearance-none w-32 mx-2 h-3 bg-indigo-500 rounded-full outline-none"
+
         />
 
         {/* Play button with icon */}
