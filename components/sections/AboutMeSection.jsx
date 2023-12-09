@@ -66,11 +66,13 @@ const AboutMeSection = () => {
         </div>
 
         <div className="w-1/2">
+        <div className="hidden lg:block">
           <Image
             src={aboutMeImage} // Replace with the actual path to your image
             alt="About Me"
             className="w-full h-auto rounded-lg"
           />
+        </div>
         </div>
       </div>
       <br />
