@@ -1,38 +1,45 @@
 "use client";
-import React ,{useState} from "react";
+import React, { useEffect, useState } from "react";
 import { useSpring, animated } from "react-spring";
 import { useInView } from "react-intersection-observer";
 import "@/styles/services.css";
-import { useRouter } from "next/navigation";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { getSession } from "next-auth/react";
 
 export default function Contact() {
-
   const [email, setEmail] = useState({
     name: "",
     email: "",
     subject: "",
     message: "",
   });
+  const [emailc, setEmailc] = useState("");
+
+  const [session, setSession] = useState(null);
+  const fetchData = async () => {
+    const session = await getSession();
+    setSession(session);
+
+    if (session) {
+      setEmailc(session.user.email);
+    }
+  };
+
+  useEffect(() => {
+    fetchData();
+  }, []);
 
   const sendMail = async () => {
-  
-
     try {
-     
       const response = await axios.post("/api/sendEmail", email);
       console.log("Email Sent", response.message);
       router.reload();
     } catch (error) {
       console.log("Email Failed", error.message);
       toast.error(error.message);
-    } 
-    
-  }
-
-
-
+    }
+  };
 
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -43,11 +50,7 @@ export default function Contact() {
     transform: inView ? "translateY(0)" : "translateY(1px)",
   });
   return (
-    <animated.div
-      ref={ref}
-      style={style}
-      id='contact'
-    >
+    <animated.div ref={ref} style={style} id="contact">
       <div className=" text-white py-16 mt-16">
         <div className="text-center mb-8">
           <h2 className="text-4xl font-bold mb-8 services-heading relative">
@@ -63,23 +66,44 @@ export default function Contact() {
                 <label htmlFor="yourName" className="block text-gray-200">
                   Your Name
                 </label>
-                <input
-                  type="text"
-                  id="yourName"
-                  name="yourName"
-                  className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500 bg-slate-950/25 border-indigo-500"
-                  placeholder="Your Name"
-                  onChange={(e) => {
-                    setEmail({ ...email, name: e.target.value });
-                  }}
-                  required
-                />
+
+                {session ? (
+                  <div>
+                    <input
+                      type="text"
+                      id="yourName"
+                      name="yourName"
+                      className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500 bg-slate-950/25 border-indigo-500"
+                      placeholder={emailc}
+                      value={emailc}
+                      onChange={(e) => {
+                        setEmail({ ...email, name: e.target.value });
+                      }}
+                      required
+                    />
+                  </div>
+                ) : (
+                  <>
+                    <input
+                      type="text"
+                      id="yourName"
+                      name="yourName"
+                      className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500 bg-slate-950/25 border-indigo-500"
+                      placeholder="Your Name"
+                      onChange={(e) => {
+                        setEmail({ ...email, name: e.target.value });
+                      }}
+                      required
+                    />
+                  </>
+                )}
               </div>
 
               <div className="mb-4">
                 <label htmlFor="email" className="block text-gray-200">
                   Your Email Address
                 </label>
+
                 <input
                   type="email"
                   id="email"
