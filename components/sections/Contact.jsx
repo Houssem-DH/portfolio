@@ -23,7 +23,7 @@ export default function Contact() {
 
     if (session) {
       setEmailc(session.user.email);
-    }
+    } 
   };
 
   useEffect(() => {
@@ -66,9 +66,26 @@ export default function Contact() {
                 <label htmlFor="yourName" className="block text-gray-200">
                   Your Name
                 </label>
+                <input
+                  type="text"
+                  id="yourName"
+                  name="yourName"
+                  className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500 bg-slate-950/25 border-indigo-500"
+                  placeholder="Your Name"
+                  onChange={(e) => {
+                    setEmail({ ...email, name: e.target.value });
+                  }}
+                  required
+                />
+              </div>
+
+              <div className="mb-4">
+                <label htmlFor="email" className="block text-gray-200">
+                  Your Email Address
+                </label>
 
                 {session ? (
-                  <div>
+                  <>
                     <input
                       type="text"
                       id="yourName"
@@ -77,44 +94,27 @@ export default function Contact() {
                       placeholder={emailc}
                       value={emailc}
                       onChange={(e) => {
-                        setEmail({ ...email, name: e.target.value });
+                        setEmail({ ...email, email: e.target.value });
                       }}
                       required
                     />
-                  </div>
+                  </>
                 ) : (
                   <>
                     <input
-                      type="text"
-                      id="yourName"
-                      name="yourName"
+                      type="email"
+                      id="email"
+                      name="email"
                       className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500 bg-slate-950/25 border-indigo-500"
-                      placeholder="Your Name"
+                      placeholder={emailc}
+                      value={emailc}
                       onChange={(e) => {
-                        setEmail({ ...email, name: e.target.value });
+                        setEmail({ ...email, email: e.target.value });
                       }}
                       required
                     />
                   </>
                 )}
-              </div>
-
-              <div className="mb-4">
-                <label htmlFor="email" className="block text-gray-200">
-                  Your Email Address
-                </label>
-
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500 bg-slate-950/25 border-indigo-500"
-                  placeholder="Your Email Address"
-                  onChange={(e) => {
-                    setEmail({ ...email, email: e.target.value });
-                  }}
-                  required
-                />
               </div>
 
               <div className="mb-4">
