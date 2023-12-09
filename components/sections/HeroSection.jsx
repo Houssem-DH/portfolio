@@ -56,6 +56,22 @@ const HeroSection = () => {
               >
                 <i className="fab fa-linkedin-in text-white hover:text-purple-600 text-2xl ml-4"></i>
               </Link>
+                            {/* twitter */}
+                            <Link
+                href="https://twitter.com/HoussemDh19"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i className="fab fa-twitter text-white hover:text-purple-600 text-2xl ml-4"></i>
+              </Link>
+                            {/* Instagram icon */}
+                            <Link
+                href="https://www.instagram.com/xdhoussem19/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i className="fab fa-instagram text-white hover:text-purple-600 text-2xl ml-4"></i>
+              </Link>
             </div>
           </div>
           <div className="flex items-center">
