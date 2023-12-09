@@ -106,7 +106,7 @@ export default function Contact() {
                       id="email"
                       name="email"
                       className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500 bg-slate-950/25 border-indigo-500"
-                      placeholder={emailc}
+                      placeholder="Your Email"
                       value={emailc}
                       onChange={(e) => {
                         setEmail({ ...email, email: e.target.value });
