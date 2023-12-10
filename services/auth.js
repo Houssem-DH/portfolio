@@ -1,19 +1,14 @@
-export const registerUser = (username,email, password) => {
-  return new Promise((resolve, reject) => {
-      fetch('/api/register', {
-          method: 'POST',
-          body: JSON.stringify({ username,email, password }),
-          headers: {
-              "Accept": "application/json",
-              "Content-Type": "application/json",
-          }
-      })
-          .then(res => {
-              res
-                  .json()
-                  .then(json => resolve(json))
-                  .catch(e => reject(e))
-          })
-          .catch(e => reject(e))
-  })
-}
+import axios from 'axios';
+
+export const registerUser = async (username, email, password) => {
+  try {
+        const response = await axios.post('/api/register', {
+            username,
+            email,
+            password,
+        });
+        return response.data;
+    } catch (error) {
+        throw error.response.data;
+    }
+};

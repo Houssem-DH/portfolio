@@ -2,6 +2,7 @@ import prisma from "@/helpers/prisma";
 import { NextResponse } from "next/server";
 import * as bcryptjs from "bcryptjs";
 
+
 export async function POST(request) {
     try {
         
@@ -15,6 +16,28 @@ export async function POST(request) {
             );
         }
 
+        const userCheckEmail = await prisma.user.findFirst({
+            where: { email: email.toLowerCase() }
+        });
+        const userCheckUsername = await prisma.user.findFirst({
+            where: { username: username.toLowerCase() }
+        });
+
+        if (userCheckEmail && userCheckUsername) {
+            return NextResponse.json({ message: "Email And Username Already Taken" }, { status: 400 });
+        }
+
+
+        if (userCheckEmail) {
+            return NextResponse.json({ message: "Email Already Taken" }, { status: 400 });
+        }
+
+        if (userCheckUsername) {
+            return NextResponse.json({ message: "Username Already Taken" }, { status: 400 });
+        }
+
+
+
         const user = await prisma.user.create({
             data: {
                 username: username.toLowerCase(),
@@ -22,6 +45,8 @@ export async function POST(request) {
                 password: await bcryptjs.hash(password, 10),
             },
         });
+
+
 
         const { password: hashedPassword, ...result } = user;
 

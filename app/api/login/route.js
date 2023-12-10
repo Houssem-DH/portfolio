@@ -16,14 +16,14 @@ export async function POST(request) {
         });
 
         if (!user) {
-            return NextResponse.json({ message: "No user found" }, { status: 400 });
+            return NextResponse.json({ message: "User Not Found" }, { status: 400 });
         }
 
         if (await bcrypt.compare(password, user.password)) {
             const { password: hashedPasswrod, ...result } = user;
             const accessToken = signJwtAccessToken(result);
 
-           
+
 
             return NextResponse.json({ result: { ...result, accessToken } }, { status: 200 });
         }

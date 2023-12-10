@@ -3,14 +3,14 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { signIn } from "next-auth/react";
+import ThreeDotAnimation from "@/components/ThreeDotAnimation";
 
 const Login = () => {
   const router = useRouter();
-
+  const [loading, setLoading] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
-
 
   const handleEmailChange = (e) => setEmail(e.target.value);
   const handlePasswordChange = (e) => setPassword(e.target.value);
@@ -20,7 +20,7 @@ const Login = () => {
     setError("");
   };
   const handleSubmit = async (e) => {
-    
+    setLoading(true);
     e.preventDefault();
     signIn("credentials", {
       email,
@@ -29,27 +29,30 @@ const Login = () => {
     })
       .then((res) => {
         if (res && res.error) {
-          
           const errorObject = JSON.parse(res.error);
           setError(errorObject.message);
-          console.log("Error response:", errorObject);
+
+          setLoading(false);
         } else {
           clearInputs();
-    
+          setLoading(false);
           router.push("/");
           window.location.reload();
         }
       })
       .catch((error) => {
-        console.error("An error occurred during login:", error);
-        // Handle the error as needed
+      
+        setLoading(false);
       });
   };
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-slate-950/25">
       <div className="bg-slate-950/25 p-8 rounded-lg shadow-md w-96 text-white">
-        <h2 className="text-2xl font-semibold mb-4">Login</h2>
+        <h2 className="text-2xl font-semibold mb-4">
+          {loading ? <ThreeDotAnimation text="Login" /> : "Login"}
+        </h2>
+        {error && <p className="text-orange-700">{error}</p>}
         <form onSubmit={handleSubmit}>
           <div className="mb-4">
             <label htmlFor="email" className="block text-gray-600">
@@ -80,15 +83,14 @@ const Login = () => {
             />
           </div>
           <div className="mb-6">
-          <label className="flex items-center">
-            <input
-              type="checkbox"
-              className="text-indigo-500 form-checkbox"
-              
-            />
-            <span className="ml-2 text-gray-600">Remember me</span>
-          </label>
-        </div>
+            <label className="flex items-center">
+              <input
+                type="checkbox"
+                className="text-indigo-500 form-checkbox"
+              />
+              <span className="ml-2 text-gray-600">Remember me</span>
+            </label>
+          </div>
 
           <div>
             <button
@@ -97,7 +99,6 @@ const Login = () => {
             >
               Login
             </button>
-            {error && <p>{error}</p>}
           </div>
         </form>
 

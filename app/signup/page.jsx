@@ -3,10 +3,11 @@ import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { registerUser } from "@/services/auth";
+import ThreeDotAnimation from "@/components/ThreeDotAnimation";
 
 export default function Signup() {
   const router = useRouter();
-
+  const [loading, setLoading] = useState(false);
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -23,27 +24,27 @@ export default function Signup() {
   };
 
   const handleSubmit = async (e) => {
+    setLoading(true);
     e.preventDefault();
     registerUser(username, email, password)
-
       .then((res) => {
+        clearInputs();
+        setLoading(false);
         router.push("/login");
-        if (res.status === 201) {
-          clearInputs();
-          
-        } else {
-          setError(res.message);
-        }
+       
       })
       .catch((e) => {
-        console.error(e);
+       
+        setError(e.message);
+        setLoading(false);
       });
   };
   return (
     <div className="min-h-screen flex items-center justify-center bg-slate-950/25">
       <div className="bg-slate-950/25 p-8 rounded-lg shadow-md w-96 text-white">
         <form onSubmit={handleSubmit}>
-          <h2 className="text-2xl font-semibold mb-4">Signup</h2>
+          <h2 className="text-2xl font-semibold mb-4"> {loading ?  <ThreeDotAnimation text="Signup"/> : "Signup"}</h2>
+          {error && <p className="text-orange-700">{error}</p>}
 
           <div className="mb-4">
             <label htmlFor="name" className="block text-gray-600">
