@@ -6,7 +6,6 @@ import "@/styles/services.css";
 import axios from "axios";
 import ThreeDotAnimation from "@/components/ThreeDotAnimation";
 
-import { getSession } from "next-auth/react";
 
 export default function Contact() {
   const [email, setEmail] = useState({
@@ -16,19 +15,8 @@ export default function Contact() {
     message: "",
   });
   const [loading, setLoading] = useState(false);
-  const [emailc, setEmailc] = useState("");
   const [success, setSuccess] = useState("");
   const [error, setError] = useState("");
-
-  const [session, setSession] = useState(null);
-  const fetchData = async () => {
-    const session = await getSession();
-    setSession(session);
-
-    if (session) {
-      setEmailc(session.user.email);
-    }
-  };
 
   const nameInputRef = useRef(null);
   const emailInputRef = useRef(null);
@@ -87,9 +75,7 @@ export default function Contact() {
     }
   };
 
-  useEffect(() => {
-    fetchData();
-  }, []);
+  useEffect(() => {}, []);
 
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -114,114 +100,94 @@ export default function Contact() {
           <div className="w-full md:w-1/2 md:pr-8">
             <div className="text-left">
               <form onSubmit={sendMail}>
-              <div className="mb-4">
-                {error && <p className="text-orange-700">{error}</p>}
-                {success && <p className="text-green-700">{success}</p>}
+                <div className="mb-4">
+                  {error && <p className="text-orange-700">{error}</p>}
+                  {success && <p className="text-green-700">{success}</p>}
 
-                <label htmlFor="yourName" className="block text-gray-200">
-                  Your Name
-                </label>
-                <input
-                  ref={nameInputRef}
-                  type="text"
-                  id="yourName"
-                  name="yourName"
-                  className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500 bg-slate-950/25 border-indigo-500"
-                  placeholder="Your Name"
-                  onChange={(e) => {
-                    setEmail({ ...email, name: e.target.value });
-                  }}
-                  required
-                />
-              </div>
+                  <label htmlFor="yourName" className="block text-gray-200">
+                    Your Name
+                  </label>
+                  <input
+                    ref={nameInputRef}
+                    type="text"
+                    id="yourName"
+                    name="yourName"
+                    className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500 bg-slate-950/25 border-indigo-500"
+                    placeholder="Your Name"
+                    onChange={(e) => {
+                      setEmail({ ...email, name: e.target.value });
+                    }}
+                    required
+                  />
+                </div>
 
-              <div className="mb-4">
-                <label htmlFor="email" className="block text-gray-200">
-                  Your Email Address
-                </label>
+                <div className="mb-4">
+                  <label htmlFor="email" className="block text-gray-200">
+                    Your Email Address
+                  </label>
 
-                {session ? (
-                  <>
-                    <input
-                      ref={emailInputRef}
-                      type="text"
-                      id="yourName"
-                      name="yourName"
-                      className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500 bg-slate-950/25 border-indigo-500"
-                      placeholder={emailc}
-                      onChange={(e) => {
-                        setEmail({ ...email, email: e.target.value });
-                      }}
-                      required
-                    />
-                  </>
-                ) : (
-                  <>
-                    <input
-                      ref={emailInputRef}
-                      type="email"
-                      id="email"
-                      name="email"
-                      className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500 bg-slate-950/25 border-indigo-500"
-                      placeholder="Your Email"
-                      onChange={(e) => {
-                        setEmail({ ...email, email: e.target.value });
-                      }}
-                      required
-                    />
-                  </>
-                )}
-              </div>
+                  <input
+                    ref={emailInputRef}
+                    type="text"
+                    id="yourName"
+                    name="yourName"
+                    className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500 bg-slate-950/25 border-indigo-500"
+                    placeholder="Your Email"
+                    onChange={(e) => {
+                      setEmail({ ...email, email: e.target.value });
+                    }}
+                    required
+                  />
+                </div>
 
-              <div className="mb-4">
-                <label htmlFor="subject" className="block text-gray-200">
-                  Subject
-                </label>
-                <input
-                  ref={subjectInputRef}
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500 bg-slate-950/25 border-indigo-500"
-                  placeholder="Subject"
-                  onChange={(e) => {
-                    setEmail({ ...email, subject: e.target.value });
-                  }}
-                  required
-                />
-              </div>
+                <div className="mb-4">
+                  <label htmlFor="subject" className="block text-gray-200">
+                    Subject
+                  </label>
+                  <input
+                    ref={subjectInputRef}
+                    type="text"
+                    id="subject"
+                    name="subject"
+                    className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500 bg-slate-950/25 border-indigo-500"
+                    placeholder="Subject"
+                    onChange={(e) => {
+                      setEmail({ ...email, subject: e.target.value });
+                    }}
+                    required
+                  />
+                </div>
 
-              <div className="mb-4">
-                <label htmlFor="message" className="block text-gray-200">
-                  Your Message
-                </label>
-                <textarea
-                  ref={messageInputRef}
-                  id="message"
-                  name="message"
-                  rows="4"
-                  className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500 bg-slate-950/25 border-indigo-500"
-                  placeholder="Your Message"
-                  onChange={(e) => {
-                    setEmail({ ...email, message: e.target.value });
-                  }}
-                  required
-                ></textarea>
-              </div>
+                <div className="mb-4">
+                  <label htmlFor="message" className="block text-gray-200">
+                    Your Message
+                  </label>
+                  <textarea
+                    ref={messageInputRef}
+                    id="message"
+                    name="message"
+                    rows="4"
+                    className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500 bg-slate-950/25 border-indigo-500"
+                    placeholder="Your Message"
+                    onChange={(e) => {
+                      setEmail({ ...email, message: e.target.value });
+                    }}
+                    required
+                  ></textarea>
+                </div>
 
-              <div className="text-center">
-                <button
-                  type="submit"
-                 
-                  className="bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition duration-300"
-                >
-                  {loading ? (
-                    <ThreeDotAnimation text="Send Message" />
-                  ) : (
-                    "Send Message"
-                  )}
-                </button>
-              </div>
+                <div className="text-center">
+                  <button
+                    type="submit"
+                    className="bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition duration-300"
+                  >
+                    {loading ? (
+                      <ThreeDotAnimation text="Send Message" />
+                    ) : (
+                      "Send Message"
+                    )}
+                  </button>
+                </div>
               </form>
             </div>
           </div>
