@@ -1,10 +1,11 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useSpring, animated } from "react-spring";
 import { useInView } from "react-intersection-observer";
 import "@/styles/services.css";
 import axios from "axios";
-import toast from "react-hot-toast";
+import ThreeDotAnimation from "@/components/ThreeDotAnimation";
+
 import { getSession } from "next-auth/react";
 
 export default function Contact() {
@@ -14,7 +15,10 @@ export default function Contact() {
     subject: "",
     message: "",
   });
+  const [loading, setLoading] = useState(false);
   const [emailc, setEmailc] = useState("");
+  const [success, setSuccess] = useState("");
+  const [error, setError] = useState("");
 
   const [session, setSession] = useState(null);
   const fetchData = async () => {
@@ -26,20 +30,66 @@ export default function Contact() {
     }
   };
 
+  const nameInputRef = useRef(null);
+  const emailInputRef = useRef(null);
+  const subjectInputRef = useRef(null);
+  const messageInputRef = useRef(null);
+
+  const resetInputFields = () => {
+    nameInputRef.current.value = "";
+    emailInputRef.current.value = "";
+    subjectInputRef.current.value = "";
+    messageInputRef.current.value = "";
+  };
+
+  const clearInputs = () => {
+    setEmail({
+      name: "",
+      email: "",
+      subject: "",
+      message: "",
+    });
+  };
+
+  const sendMail = async (e) => {
+    setError("");
+    setSuccess("");
+    setLoading(true);
+    e.preventDefault();
+
+    try {
+      // Make a POST request to your API route
+      const response = await axios.post("/api/sendEmail", email);
+
+      if (response.data.message == "Email Sent Succesfully") {
+        clearInputs();
+        resetInputFields();
+
+        setLoading(false);
+        setSuccess(response.data.message);
+        // Reset input fields after successful submission
+
+        // Handle success, e.g., show a success message to the user
+      } else {
+        clearInputs();
+        resetInputFields();
+        setLoading(false);
+        // Reset input fields after successful submission
+
+        // Handle failure, e.g., show an error message to the user
+      }
+    } catch (error) {
+      console.error("Error sending email:", error);
+      resetInputFields();
+      setLoading(false);
+      setError(error.message); // Reset input fields after successful submission
+      // Handle error, e.g., show an error message to the user
+    }
+  };
+
   useEffect(() => {
     fetchData();
   }, []);
-
-  const sendMail = async () => {
-    try {
-      const response = await axios.post("/api/sendEmail", email);
-      console.log("Email Sent", response.message);
-      router.reload();
-    } catch (error) {
-      console.log("Email Failed", error.message);
-      toast.error(error.message);
-    }
-  };
 
   const [ref, inView] = useInView({
     triggerOnce: true,
@@ -61,12 +111,17 @@ export default function Contact() {
 
         <div className="container mx-auto flex flex-col items-center">
           <div className="w-full md:w-1/2 md:pr-8">
-            <form className="text-left">
+            <div className="text-left">
+              <form onSubmit={sendMail}>
               <div className="mb-4">
+                {error && <p className="text-orange-700">{error}</p>}
+                {success && <p className="text-green-700">{success}</p>}
+
                 <label htmlFor="yourName" className="block text-gray-200">
                   Your Name
                 </label>
                 <input
+                  ref={nameInputRef}
                   type="text"
                   id="yourName"
                   name="yourName"
@@ -87,12 +142,12 @@ export default function Contact() {
                 {session ? (
                   <>
                     <input
+                      ref={emailInputRef}
                       type="text"
                       id="yourName"
                       name="yourName"
                       className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-blue-500 bg-slate-950/25 border-indigo-500"
                       placeholder={emailc}
-                     
                       onChange={(e) => {
                         setEmail({ ...email, email: e.target.value });
                       }}
@@ -102,6 +157,7 @@ export default function Contact() {
                 ) : (
                   <>
                     <input
+                      ref={emailInputRef}
                       type="email"
                       id="email"
                       name="email"
@@ -121,6 +177,7 @@ export default function Contact() {
                   Subject
                 </label>
                 <input
+                  ref={subjectInputRef}
                   type="text"
                   id="subject"
                   name="subject"
@@ -138,6 +195,7 @@ export default function Contact() {
                   Your Message
                 </label>
                 <textarea
+                  ref={messageInputRef}
                   id="message"
                   name="message"
                   rows="4"
@@ -153,13 +211,18 @@ export default function Contact() {
               <div className="text-center">
                 <button
                   type="submit"
-                  onClick={sendMail}
+                 
                   className="bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition duration-300"
                 >
-                  Send Message
+                  {loading ? (
+                    <ThreeDotAnimation text="Send Message" />
+                  ) : (
+                    "Send Message"
+                  )}
                 </button>
               </div>
-            </form>
+              </form>
+            </div>
           </div>
         </div>
       </div>
