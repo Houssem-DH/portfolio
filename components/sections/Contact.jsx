@@ -99,6 +99,7 @@ export default function Contact() {
     opacity: inView ? 1 : 0,
     transform: inView ? "translateY(0)" : "translateY(1px)",
   });
+  
   return (
     <animated.div ref={ref} style={style} id="contact">
       <div className=" text-white py-16 mt-16">
