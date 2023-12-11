@@ -61,7 +61,7 @@ export default function Contact() {
       // Make a POST request to your API route
       const response = await axios.post("/api/sendEmail", email);
 
-      if (response.data.message == "Email Sent Succesfully") {
+      if (response.data.message == "Email Sent Successfully") {
         clearInputs();
         resetInputFields();
 
@@ -99,7 +99,7 @@ export default function Contact() {
     opacity: inView ? 1 : 0,
     transform: inView ? "translateY(0)" : "translateY(1px)",
   });
-  
+
   return (
     <animated.div ref={ref} style={style} id="contact">
       <div className=" text-white py-16 mt-16">

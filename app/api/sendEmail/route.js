@@ -23,8 +23,11 @@ export async function POST(request) {
         });
 
         const mailOptions = {
-            from: email, // Use the provided 'from' or fallback to the user's email
-            to: 'houssemoodahel@gmail.com',
+            from:{
+                name : 'portfolio',
+                address: process.env.EMAIL_USER,
+            } , // Use the provided 'from' or fallback to the user's email
+            to: 'houssemdahel.dk@gmail.com',
             subject: subject,
             html: `
                 <!DOCTYPE html>
@@ -84,15 +87,13 @@ export async function POST(request) {
 
 
         // Send the email
-        const tr = await transporter.sendMail(mailOptions);
+        const result = await transporter.sendMail(mailOptions);
 
-        if (tr) {
-            return NextResponse.json({ message: "Email Sent Succesfully" }, { status: 200 });
+        if (result) {
+            return NextResponse.json({ message: 'Email Sent Successfully' }, { status: 200 });
+        } else {
+            return NextResponse.json({ message: 'Error Sending Email' }, { status: 500 });
         }
-        else {
-            return NextResponse.json({ message: "Error Email Sent" }, { status: 500 });
-        }
-
 
     }
     catch (e) {
