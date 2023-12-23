@@ -7,7 +7,6 @@
     "build": "prisma generate &&  next build",
     "start": "next start",
     "lint": "next lint"
- 
   },
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.4.2",
@@ -26,10 +25,12 @@
     "bcryptjs": "^2.4.3",
     "http-server": "^14.1.1",
     "jsonwebtoken": "^9.0.2",
+    "leva": "^0.9.35",
     "mongoose": "^8.0.0",
     "next": "14.0.1",
     "next-auth": "^4.24.5",
     "nodemailer": "^6.9.7",
+    "r3f-perf": "^7.1.2",
     "react": "^18",
     "react-dom": "^18",
     "react-hot-toast": "^2.4.1",
