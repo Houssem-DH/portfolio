@@ -20,6 +20,7 @@
     "@prisma/client": "^5.7.0",
     "@react-three/drei": "^9.88.15",
     "@react-three/fiber": "^8.15.11",
+    "@tweenjs/tween.js": "^21.0.0",
     "axios": "^1.6.0",
     "bcrypt": "^5.1.1",
     "bcryptjs": "^2.4.3",
