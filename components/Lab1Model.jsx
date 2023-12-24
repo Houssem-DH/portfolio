@@ -37,6 +37,14 @@ export function Model(props) {
   const woodc2 = useTexture("/web3d/lab1/Textures/woodc2.jpg");
   const woodc3 = useTexture("/web3d/lab1/Textures/woodc3.jpg");
 
+  const perfStyle = {
+    position: "absolute",
+    top: 0,
+    left: 0,
+    right: 700,
+    zIndex: 1,
+  };
+
   const { orbit, perf } = useControls({
     orbit: true,
     perf: false,
@@ -58,7 +66,7 @@ export function Model(props) {
     },
     { collapsed: true }
   );
-  const { tablePosition, tableScale, tableTextures } = useControls(
+  const { tablePosition, tableScale, tableTextures, tableHidden } = useControls(
     "Table",
     {
       tablePosition: {
@@ -77,6 +85,7 @@ export function Model(props) {
         value: 0, // Set the index of the default texture
         options: [0, 1, 2, 3, 4, 5, 6],
       },
+      tableHidden: false,
     },
     { collapsed: true }
   );
@@ -84,152 +93,164 @@ export function Model(props) {
   // Now use the selected texture like this:
   const textures = [tableTexture, wood1, wood2, wood3, wood4, wood5, wood6];
   const selectedTexture = textures[tableTextures];
-  const { chair1Position, chair1Scale, chair1Textures } = useControls(
-    "Chair1",
-    {
-      chair1Position: {
-        value: [14.626, -0.68, 1.056],
-        min: 4.626,
-        max: 24.626,
-        step: 1,
+  const { chair1Position, chair1Scale, chair1Textures, chair1Hidden } =
+    useControls(
+      "Chair1",
+      {
+        chair1Position: {
+          value: [14.626, -0.68, 1.056],
+          min: 4.626,
+          max: 24.626,
+          step: 1,
+        },
+        chair1Scale: {
+          value: 4.294,
+          min: 4.294,
+          max: 24.294,
+          step: 1,
+        },
+        chair1Textures: {
+          value: 0, // Set the index of the default texture
+          options: [0, 1, 2, 3],
+        },
+        chair1Hidden: false,
       },
-      chair1Scale: {
-        value: 4.294,
-        min: 4.294,
-        max: 24.294,
-        step: 1,
-      },
-      chair1Textures: {
-        value: 0, // Set the index of the default texture
-        options: [0, 1, 2, 3],
-      },
-    },
-    { collapsed: true }
-  );
+      { collapsed: true }
+    );
 
   const texturesc1 = [chair, woodc1, woodc2, woodc3];
   const selectedTexturec1 = texturesc1[chair1Textures];
 
-  const { chair2Position, chair2Scale, chair2Textures } = useControls(
-    "Chair2",
-    {
-      chair2Position: {
-        value: [11.554, -0.68, -5.277],
-        min: 4.626,
-        max: 24.626,
-        step: 1,
+  const { chair2Position, chair2Scale, chair2Textures, chair2Hidden } =
+    useControls(
+      "Chair2",
+      {
+        chair2Position: {
+          value: [11.554, -0.68, -5.277],
+          min: 4.626,
+          max: 24.626,
+          step: 1,
+        },
+        chair2Scale: {
+          value: 4.294,
+          min: 4.294,
+          max: 24.294,
+          step: 1,
+        },
+        chair2Textures: {
+          value: 0, // Set the index of the default texture
+          options: [0, 1, 2, 3],
+        },
+        chair2Hidden: false,
       },
-      chair2Scale: {
-        value: 4.294,
-        min: 4.294,
-        max: 24.294,
-        step: 1,
-      },
-      chair2Textures: {
-        value: 0, // Set the index of the default texture
-        options: [0, 1, 2, 3],
-      },
-    },
-    { collapsed: true }
-  );
+      { collapsed: true }
+    );
 
   const texturesc2 = [chair, woodc1, woodc2, woodc3];
   const selectedTexturec2 = texturesc2[chair2Textures];
-  const { chair3Position, chair3Scale, chair3Textures } = useControls(
-    "Chair3",
-    {
-      chair3Position: {
-        value: [7.786, -0.68, -5.277],
-        min: 4.626,
-        max: 24.626,
-        step: 1,
+  const { chair3Position, chair3Scale, chair3Textures, chair3Hidden } =
+    useControls(
+      "Chair3",
+      {
+        chair3Position: {
+          value: [7.786, -0.68, -5.277],
+          min: 4.626,
+          max: 24.626,
+          step: 1,
+        },
+        chair3Scale: {
+          value: 4.294,
+          min: 4.294,
+          max: 24.294,
+          step: 1,
+        },
+        chair3Textures: {
+          value: 0, // Set the index of the default texture
+          options: [0, 1, 2, 3],
+        },
+        chair3Hidden: false,
       },
-      chair3Scale: {
-        value: 4.294,
-        min: 4.294,
-        max: 24.294,
-        step: 1,
-      },
-      chair3Textures: {
-        value: 0, // Set the index of the default texture
-        options: [0, 1, 2, 3],
-      },
-    },
-    { collapsed: true }
-  );
+      { collapsed: true }
+    );
   const texturesc3 = [chair, woodc1, woodc2, woodc3];
   const selectedTexturec3 = texturesc3[chair3Textures];
 
-  const { chair4Position, chair4Scale, chair4Textures } = useControls(
-    "Chair4",
-    {
-      chair4Position: {
-        value: [2.314, -0.68, -1.134],
-        min: 4.626,
-        max: 24.626,
-        step: 1,
+  const { chair4Position, chair4Scale, chair4Textures, chair4Hidden } =
+    useControls(
+      "Chair4",
+      {
+        chair4Position: {
+          value: [2.314, -0.68, -1.134],
+          min: 4.626,
+          max: 24.626,
+          step: 1,
+        },
+        chair4Scale: {
+          value: 4.294,
+          min: 4.294,
+          max: 24.294,
+          step: 1,
+        },
+        chair4Textures: {
+          value: 0, // Set the index of the default texture
+          options: [0, 1, 2, 3],
+        },
+        chair4Hidden: false,
       },
-      chair4Scale: {
-        value: 4.294,
-        min: 4.294,
-        max: 24.294,
-        step: 1,
-      },
-      chair4Textures: {
-        value: 0, // Set the index of the default texture
-        options: [0, 1, 2, 3],
-      },
-    },
-    { collapsed: true }
-  );
+      { collapsed: true }
+    );
   const texturesc4 = [chair, woodc1, woodc2, woodc3];
   const selectedTexturec4 = texturesc4[chair4Textures];
-  const { chair5Position, chair5Scale, chair5Textures } = useControls(
-    "Chair5",
-    {
-      chair5Position: {
-        value: [5.607, -0.68, 5.049],
-        min: 4.626,
-        max: 24.626,
-        step: 1,
+  const { chair5Position, chair5Scale, chair5Textures, chair5Hidden } =
+    useControls(
+      "Chair5",
+      {
+        chair5Position: {
+          value: [5.607, -0.68, 5.049],
+          min: 4.626,
+          max: 24.626,
+          step: 1,
+        },
+        chair5Scale: {
+          value: 4.294,
+          min: 4.294,
+          max: 24.294,
+          step: 1,
+        },
+        chair5Textures: {
+          value: 0, // Set the index of the default texture
+          options: [0, 1, 2, 3],
+        },
+        chair5Hidden: false,
       },
-      chair5Scale: {
-        value: 4.294,
-        min: 4.294,
-        max: 24.294,
-        step: 1,
-      },
-      chair5Textures: {
-        value: 0, // Set the index of the default texture
-        options: [0, 1, 2, 3],
-      },
-    },
-    { collapsed: true }
-  );
+      { collapsed: true }
+    );
   const texturesc5 = [chair, woodc1, woodc2, woodc3];
   const selectedTexturec5 = texturesc5[chair5Textures];
-  const { chair6Position, chair6Scale, chair6Textures } = useControls(
-    "Chair6",
-    {
-      chair6Position: {
-        value: [9.374, -0.68, 5.086],
-        min: 4.626,
-        max: 24.626,
-        step: 1,
+  const { chair6Position, chair6Scale, chair6Textures, chair6Hidden } =
+    useControls(
+      "Chair6",
+      {
+        chair6Position: {
+          value: [9.374, -0.68, 5.086],
+          min: 4.626,
+          max: 24.626,
+          step: 1,
+        },
+        chair6Scale: {
+          value: 4.294,
+          min: 4.294,
+          max: 24.294,
+          step: 1,
+        },
+        chair6Textures: {
+          value: 0, // Set the index of the default texture
+          options: [0, 1, 2, 3],
+        },
+        chair6Hidden: false,
       },
-      chair6Scale: {
-        value: 4.294,
-        min: 4.294,
-        max: 24.294,
-        step: 1,
-      },
-      chair6Textures: {
-        value: 0, // Set the index of the default texture
-        options: [0, 1, 2, 3],
-      },
-    },
-    { collapsed: true }
-  );
+      { collapsed: true }
+    );
   const texturesc6 = [chair, woodc1, woodc2, woodc3];
   const selectedTexturec6 = texturesc6[chair6Textures];
 
@@ -252,13 +273,16 @@ export function Model(props) {
       .start();
   };
 
+
   useFrame(() => {
     TWEEN.update();
   });
 
   return (
     <>
-      {perf ? <Perf position="top-left" /> : null}
+     
+
+      {perf ? <Perf style={perfStyle} /> : null}
 
       {/* Ambient light to provide some overall illumination */}
       <ambientLight position={[1, 1, 1]} intensity={2} ref={light5} />
@@ -299,98 +323,118 @@ export function Model(props) {
             side={THREE.DoubleSide}
           />
         </mesh>
-        <mesh
-          ref={tableRef}
-          geometry={nodes.Table.geometry}
-          material={materials["Wood Black UA"]}
-          position={tablePosition}
-          scale={tableScale}
-          castShadow
-          onClick={() =>
-            handleClick(new THREE.Vector3(8.436, 10, 0), tablePosition)
-          }
-        >
-          <meshStandardMaterial map={selectedTexture} />
-        </mesh>
+        {tableHidden ? null : (
+          <mesh
+            hidden
+            ref={tableRef}
+            geometry={nodes.Table.geometry}
+            material={materials["Wood Black UA"]}
+            position={tablePosition}
+            scale={tableScale}
+            castShadow
+            onClick={() =>
+              handleClick(new THREE.Vector3(8.436, 10, 0), tablePosition)
+            }
+          >
+            <meshStandardMaterial map={selectedTexture} />
+          </mesh>
+        )}
 
-        <mesh
-          geometry={nodes.Chair1.geometry}
-          material={materials.Wood}
-          position={chair1Position}
-          rotation={[Math.PI, -1.562, -2.978]}
-          scale={chair1Scale}
-          castShadow
-          onClick={() =>
-            handleClick(new THREE.Vector3(20, 3, 0), chair1Position)
-          }
-        >
-          <meshStandardMaterial map={selectedTexturec1} />
-        </mesh>
-        <mesh
-          geometry={nodes.Chair2.geometry}
-          material={materials.Wood}
-          position={chair2Position}
-          rotation={[0, -0.005, 0.163]}
-          scale={chair2Scale}
-          castShadow
-          onClick={() =>
-            handleClick(new THREE.Vector3(8.436, 3, -9.277), chair1Position)
-          }
-        >
-          <meshStandardMaterial map={selectedTexturec2} />
-        </mesh>
-        <mesh
-          geometry={nodes.Chair3.geometry}
-          material={materials.Wood}
-          position={chair3Position}
-          rotation={[0, -0.005, 0.163]}
-          scale={chair3Scale}
-          castShadow
-          onClick={() =>
-            handleClick(new THREE.Vector3(8.436, 3, -9.277), chair3Position)
-          }
-        >
-          <meshStandardMaterial map={selectedTexturec3} />
-        </mesh>
-        <mesh
-          geometry={nodes.Chair4.geometry}
-          material={materials.Wood}
-          position={chair4Position}
-          rotation={[-Math.PI, 1.569, -2.978]}
-          scale={chair4Scale}
-          castShadow
-          onClick={() =>
-            handleClick(new THREE.Vector3(-3, 3, 0), chair4Position)
-          }
-        >
-          <meshStandardMaterial map={selectedTexturec4} />
-        </mesh>
-        <mesh
-          geometry={nodes.Chair5.geometry}
-          material={materials.Wood}
-          position={chair5Position}
-          rotation={[Math.PI, 0.014, -2.978]}
-          scale={chair5Scale}
-          castShadow
-          onClick={() =>
-            handleClick(new THREE.Vector3(8.436, 3, 9.277), chair5Position)
-          }
-        >
-          <meshStandardMaterial map={selectedTexturec5} />
-        </mesh>
-        <mesh
-          geometry={nodes.Chair6.geometry}
-          material={materials.Wood}
-          position={chair6Position}
-          rotation={[Math.PI, 0.014, -2.978]}
-          scale={chair6Scale}
-          castShadow
-          onClick={() =>
-            handleClick(new THREE.Vector3(8.436, 3, 9.277), chair6Position)
-          }
-        >
-          <meshStandardMaterial map={selectedTexturec6} />
-        </mesh>
+        {chair1Hidden ? null : (
+          <mesh
+            geometry={nodes.Chair1.geometry}
+            material={materials.Wood}
+            position={chair1Position}
+            rotation={[Math.PI, -1.562, -2.978]}
+            scale={chair1Scale}
+            castShadow
+            onClick={() =>
+              handleClick(new THREE.Vector3(20, 3, 0), chair1Position)
+            }
+          >
+            <meshStandardMaterial map={selectedTexturec1} />
+          </mesh>
+        )}
+
+        {chair2Hidden ? null : (
+          <mesh
+            geometry={nodes.Chair2.geometry}
+            material={materials.Wood}
+            position={chair2Position}
+            rotation={[0, -0.005, 0.163]}
+            scale={chair2Scale}
+            castShadow
+            onClick={() =>
+              handleClick(new THREE.Vector3(8.436, 3, -9.277), chair1Position)
+            }
+          >
+            <meshStandardMaterial map={selectedTexturec2} />
+          </mesh>
+        )}
+
+        {chair3Hidden ? null : (
+          <mesh
+            geometry={nodes.Chair3.geometry}
+            material={materials.Wood}
+            position={chair3Position}
+            rotation={[0, -0.005, 0.163]}
+            scale={chair3Scale}
+            castShadow
+            onClick={() =>
+              handleClick(new THREE.Vector3(8.436, 3, -9.277), chair3Position)
+            }
+          >
+            <meshStandardMaterial map={selectedTexturec3} />
+          </mesh>
+        )}
+
+        {chair4Hidden ? null : (
+          <mesh
+            geometry={nodes.Chair4.geometry}
+            material={materials.Wood}
+            position={chair4Position}
+            rotation={[-Math.PI, 1.569, -2.978]}
+            scale={chair4Scale}
+            castShadow
+            onClick={() =>
+              handleClick(new THREE.Vector3(-3, 3, 0), chair4Position)
+            }
+          >
+            <meshStandardMaterial map={selectedTexturec4} />
+          </mesh>
+        )}
+
+        {chair5Hidden ? null : (
+          <mesh
+            geometry={nodes.Chair5.geometry}
+            material={materials.Wood}
+            position={chair5Position}
+            rotation={[Math.PI, 0.014, -2.978]}
+            scale={chair5Scale}
+            castShadow
+            onClick={() =>
+              handleClick(new THREE.Vector3(8.436, 3, 9.277), chair5Position)
+            }
+          >
+            <meshStandardMaterial map={selectedTexturec5} />
+          </mesh>
+        )}
+
+        {chair6Hidden ? null : (
+          <mesh
+            geometry={nodes.Chair6.geometry}
+            material={materials.Wood}
+            position={chair6Position}
+            rotation={[Math.PI, 0.014, -2.978]}
+            scale={chair6Scale}
+            castShadow
+            onClick={() =>
+              handleClick(new THREE.Vector3(8.436, 3, 9.277), chair6Position)
+            }
+          >
+            <meshStandardMaterial map={selectedTexturec6} />
+          </mesh>
+        )}
       </group>
     </>
   );
