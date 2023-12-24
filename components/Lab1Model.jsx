@@ -1,6 +1,11 @@
 "use client";
 import React, { useRef } from "react";
-import { useGLTF, useTexture, OrbitControls } from "@react-three/drei";
+import {
+  useGLTF,
+  useTexture,
+  OrbitControls,
+  PivotControls,
+} from "@react-three/drei";
 import { useThree, useFrame } from "@react-three/fiber";
 import * as TWEEN from "@tweenjs/tween.js";
 
@@ -66,29 +71,31 @@ export function Model(props) {
     },
     { collapsed: true }
   );
-  const { tablePosition, tableScale, tableTextures, tableHidden } = useControls(
-    "Table",
-    {
-      tablePosition: {
-        value: [8.436, 2.266, -0.009],
-        min: -20,
-        max: 22,
-        step: 1,
+  const { tablePosition, tableScale, tableTextures, tableHidden, pivotState } =
+    useControls(
+      "Table",
+      {
+        tablePosition: {
+          value: [8.436, 2.266, -0.009],
+          min: -20,
+          max: 22,
+          step: 1,
+        },
+        tableScale: {
+          value: [5.218, 0.157, 2.606],
+          min: 1,
+          max: 10,
+          step: 0.1,
+        },
+        tableTextures: {
+          value: 0, // Set the index of the default texture
+          options: [0, 1, 2, 3, 4, 5, 6],
+        },
+        tableHidden: false,
+        pivotState: false,
       },
-      tableScale: {
-        value: [5.218, 0.157, 2.606],
-        min: 1,
-        max: 10,
-        step: 0.1,
-      },
-      tableTextures: {
-        value: 0, // Set the index of the default texture
-        options: [0, 1, 2, 3, 4, 5, 6],
-      },
-      tableHidden: false,
-    },
-    { collapsed: true }
-  );
+      { collapsed: true }
+    );
 
   // Now use the selected texture like this:
   const textures = [tableTexture, wood1, wood2, wood3, wood4, wood5, wood6];
@@ -320,7 +327,31 @@ export function Model(props) {
             side={THREE.DoubleSide}
           />
         </mesh>
-        {tableHidden ? null : (
+        {pivotState ? (
+          tableHidden ? null : (
+            <PivotControls
+              anchor={[0, 1, 0]}
+              depthTest={false}
+              scale={3}
+              enabled={false}
+            >
+              <mesh
+                hidden
+                ref={tableRef}
+                geometry={nodes.Table.geometry}
+                material={materials["Wood Black UA"]}
+                position={tablePosition}
+                scale={tableScale}
+                castShadow
+                onClick={() =>
+                  handleClick(new THREE.Vector3(8.436, 10, 0), tablePosition)
+                }
+              >
+                <meshStandardMaterial map={selectedTexture} />
+              </mesh>
+            </PivotControls>
+          )
+        ) : tableHidden ? null : (
           <mesh
             hidden
             ref={tableRef}
