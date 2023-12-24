@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React, { useRef } from "react";
 import { useGLTF, useTexture, OrbitControls } from "@react-three/drei";
 import { useThree, useFrame } from "@react-three/fiber";
 import * as TWEEN from "@tweenjs/tween.js";
@@ -273,15 +273,12 @@ export function Model(props) {
       .start();
   };
 
-
   useFrame(() => {
     TWEEN.update();
   });
 
   return (
     <>
-     
-
       {perf ? <Perf style={perfStyle} /> : null}
 
       {/* Ambient light to provide some overall illumination */}

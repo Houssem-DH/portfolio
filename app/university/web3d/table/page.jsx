@@ -1,10 +1,9 @@
 "use client";
 import React, { useState, useRef, Suspense } from "react";
 import { Canvas } from "@react-three/fiber";
-import { Loader} from "@react-three/drei";
+import { Loader } from "@react-three/drei";
 import { Model } from "@/components/Lab1Model";
-import { Leva} from "leva";
-
+import { Leva } from "leva";
 
 function Lab1() {
   const [cameraPosition, setCameraPosition] = useState([-10, 5, 7]);
@@ -18,7 +17,6 @@ function Lab1() {
     right: 0,
     zIndex: 1,
   };
-  
 
   return (
     <div className="flex items-center justify-center min-h-screen relative">
@@ -28,7 +26,6 @@ function Lab1() {
         <div style={levaStyle}>
           <Leva fill space />
         </div>
-        
 
         <Canvas
           shadows
@@ -40,7 +37,7 @@ function Lab1() {
             <Model />
           </Suspense>
         </Canvas>
-        <Loader/>
+        <Loader />
       </div>
     </div>
   );
