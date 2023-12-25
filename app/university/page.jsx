@@ -23,7 +23,7 @@ const University = () => {
   const models = [
     {
         title: 'Table',
-        description: 'Blender / GLTF / THREEjs',
+        description: 'Blender / THREEjs /R3F / GLTF ',
         image: "/images/web3d/table.png", // Replace with the actual path to your image
         
         livePreviewLink: '/university/web3d/table',
@@ -32,7 +32,7 @@ const University = () => {
 
     {
       title: 'Scene',
-      description: 'Blender / Snow / Animation ',
+      description: 'Blender / THREEJS / R3F / GLTF / Animation ',
       image: "/images/web3d/scene.png", // Replace with the actual path to your image
      
       livePreviewLink: '/university/web3d/scene',
