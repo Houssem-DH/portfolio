@@ -38,6 +38,7 @@ const University = () => {
       livePreviewLink: '/university/web3d/scene',
     },
 
+    
     {
       title: 'Scene V2 (GIF)',
       description: 'Blender /Fluid Simulation ',
@@ -45,7 +46,13 @@ const University = () => {
      
       livePreviewLink: '/university/web3d/scenev2',
     },
-    
+    {
+      title: 'Project',
+      description: 'Unity3D / Simulation ',
+      image: "/images/web3d/project.png", // Replace with the actual path to your image
+     
+      livePreviewLink: 'https://drive.google.com/file/d/1Z9K4ei9qu6R2Bk3GnaIPWYk-pt1S3k_O/view?usp=sharing',
+    },
       
 
 
@@ -69,6 +76,7 @@ const University = () => {
     
     // Add more projects as needed
   ];
+  
 
   return (
     <animated.div
