@@ -42,7 +42,7 @@ const University = () => {
       description: 'Unity3D / Simulation ',
       image: "/images/web3d/project.png", // Replace with the actual path to your image
      
-      livePreviewLink: 'https://drive.google.com/file/d/1Z9K4ei9qu6R2Bk3GnaIPWYk-pt1S3k_O/view?usp=sharing',
+      livePreviewLink: 'https://drive.google.com/file/d/1gl-qvlHMuqpBY5dx0oeri8oY6Eeamybm/view?usp=sharing',
     },
 
     
